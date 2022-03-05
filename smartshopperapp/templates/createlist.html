@@ -1,0 +1,50 @@
+{% extends "basetemplate1.html" %}
+
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\createliststyle.css' %}">
+
+{% endblock %}
+
+{% block title %}Create List{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div id="section-create-list" class="content-child">
+
+            <h1>Create a new List</h1>
+
+            <input type="text" placeholder="Name of List">
+
+            <input type="text" placeholder="Description (optional)">
+
+            <button> Save and Continue </button>
+
+            <button> Go Back </button>
+        </div>
+
+        <!---->
+
+        <div id="section-display-options" class="content-child">
+
+            <div id="section-login-signup">
+                <h1>Already have an account?</h1>
+
+                <button> Login </button>
+
+                <h1>Don't want to miss out on great deals?</h1>
+
+                <button> Create an Account</button>
+            </div>
+
+            <!-- Optional Code Below Here-->
+            <!--
+            <div id="section-display-lists">
+
+            </div>
+            -->
+
+        </div>
+    </div>
+{% endblock %}

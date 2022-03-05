@@ -2,11 +2,38 @@
 
 {% block head %}
 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\homestyle.css' %}">
 
 {% endblock %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <p> Test</p>
+    <div id="content">
+        <div id="section-title">
+            <p>Welcome to Smart Shopper!</p>
+        </div>
+
+        <div id="section-steps">
+            <div class="section-steps-child"  id="section-steps-child-1">
+
+            </div>
+
+            <div class="section-steps-child"  id="section-steps-child-2">
+                
+            </div>
+
+            <div class="section-steps-child" id="section-steps-child-3">
+                
+            </div>
+        </div>
+
+        <div id="section-button">
+
+            <button> Get Started!</button>
+
+        </div>
+    </div>
+
 {% endblock %}
