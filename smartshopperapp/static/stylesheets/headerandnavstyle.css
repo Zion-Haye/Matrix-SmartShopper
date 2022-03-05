@@ -1,0 +1,15 @@
+*{
+    margin:0;
+}
+
+header{
+    width:100vw;
+    height:10vh;
+    background-color:grey;
+}
+
+nav{
+    width:100vw;
+    height:10vh;
+    background-color:darkgray;
+}
