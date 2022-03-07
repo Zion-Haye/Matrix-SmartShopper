@@ -6,7 +6,8 @@
     justify-content: center;
     align-items: center;
 
-    border:0.5px solid black;
+    background-color: aqua;
+    
 }
 
 #section-category-list{
@@ -16,13 +17,13 @@
     display:flex;
     flex-direction: column;
     align-items: flex-start;
-    border:0.5px solid black;
+    
 }
 
 .links-container{
     height:auto;
     width:100%;
-    border:0.5px solid black;
+    
 }
 #section-catalogue{
     width:70%;
@@ -40,7 +41,7 @@
 
 .catalogue-items{
     height:auto;
-    border:0.5px solid black;
+    
 }
 
 #section-cart{
