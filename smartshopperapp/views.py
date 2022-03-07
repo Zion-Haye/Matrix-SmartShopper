@@ -12,7 +12,7 @@ def display_category_page(request):
     return render (request , 'selectcategory.html' )
 
 def display_catalogue_page(request , category):
-    print("Choosen category: " , category)
+    print("Choosen Category: " , category)
 
     #category = {}
     #category['category']=category
