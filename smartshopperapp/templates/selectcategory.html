@@ -2,7 +2,7 @@
 {% block head %}
 
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\selectcategory.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\selectcategory.css' %}?{% now "U" %}">
 
 {% endblock %}
 {% block title %}Select Category{% endblock %}

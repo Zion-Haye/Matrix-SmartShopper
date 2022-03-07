@@ -3,7 +3,7 @@
 {% block head %}
 
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\createliststyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\createliststyle.css' %}?{% now "U" %}">
 
 {% endblock %}
 
