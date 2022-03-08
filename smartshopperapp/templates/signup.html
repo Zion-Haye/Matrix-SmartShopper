@@ -1,0 +1,39 @@
+{% extends "basetemplate1.html" %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\signupstyle.css' %}?{% now "U" %}">
+
+{% endblock %}
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <form action="/SignUp/" method="POST">
+            {% csrf_token %}
+            <div class="form-item">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" required >
+            </div>
+            <div class="form-item">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+            </div>
+            <div class="form-item">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+            </div>
+            <div class="form-item">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" validate>
+            </div>
+            <div class="form-item">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="****" required>
+            </div>
+            <p>Already have an account? <a href="/Login/">Login!</a></p>
+
+            <button type="submit">SignUp!</button>
+        </form>
+    </div>
+{% endblock %}

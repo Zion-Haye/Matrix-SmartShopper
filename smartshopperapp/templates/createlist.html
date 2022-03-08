@@ -10,18 +10,26 @@
 {% block title %}Create List{% endblock %}
 
 {% block content %}
+
     <div id="content">
         <div id="section-create-list" class="content-child">
 
             <h1>Create a new List</h1>
+            <p>{{firstname}}</p>
 
-            <input type="text" placeholder="Name of List">
+            <form action="/CreateList/" method="POST">
+                {% csrf_token %}
 
-            <input type="text" placeholder="Description (optional)">
+                <input type="text" name="listname" id="listname" placeholder="Name of List" required>
 
-            <button onclick="window.location.href='/SelectCategory/'"> Save and Continue </button>
+                <input type="textarea" name="description" id="description" placeholder="Description (optional)">
+
+                <button type="submit">Save and Continue</button>
+
+               <!--<button onclick="window.location.href='/SelectCategory/'"> Save and Continue </button>-->
             
-            <button onclick="window.location.href='/'"> Go Back </button>
+                <button onclick="window.location.href='/'"> Go Back </button>
+            </form>
         </div>
 
         <!---->

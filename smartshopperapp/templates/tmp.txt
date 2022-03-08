@@ -2,7 +2,7 @@
 {% block head %}
 
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\homestyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\homestyle.css' %}?{% now "U" %}">
 
 {% endblock %}
 {% block title %}Home{% endblock %}
