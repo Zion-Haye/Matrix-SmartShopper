@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\headerandnavstyle.css' %}?{% now "U" %}">
@@ -24,13 +25,23 @@
 
     <header>
         <div id="section-1" class="flexbox-child">
-            <a href="/">Home</a>
+           
         </div>
         <div id="section-2" class="flexbox-child">
 
             {% if user.is_authenticated %}
                 
-                <button id="logout-button" onclick="window.location.href='/Logout/'">Logout</button>
+                <!-- <button id="logout-button" onclick="window.location.href='/Logout/'">Logout</button> -->
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Profile
+                    </a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href=" ">Your Account</a></li>
+                      <li><a class="dropdown-item" href="/Logout/">logout</a></li>
+                    </ul>
+                  </div>
 
             {% else %}
                 <button id="login-button" onclick="window.location.href='/Login/'">Login</button>
@@ -39,7 +50,27 @@
          
     </header>
     <nav>
-       <p>-</p>
+       <div id="nav-section-1">
+            <div class="nav-section-1-child" id="nav-section-1-child-1">
+                <a href="/">Home</a>
+            </div>
+            <div class="nav-section-1-child" id="nav-section-1-child-2">
+                <a href="/Catalogue/">Cataloge</a>
+            </div>
+            <div class="nav-section-1-child" id="nav-section-1-child-3">
+                <a href="">About Us</a>
+            </div>
+       </div>
+
+       <div id="nav-section-2">
+            <form action="" method="POST">
+                <input type="text" name="search" id="search" placeholder="Search">
+            </form>
+        </div>
+
+        <div id="nav-section-3">
+           
+        </div>
     </nav>
     <body>
         {% for message in messages %}
@@ -57,6 +88,10 @@
         <div id="content">
             {% block content %}{% endblock %}
         </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     </body>
 </body>
 </html>

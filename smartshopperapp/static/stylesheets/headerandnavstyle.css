@@ -14,6 +14,11 @@ header{
 nav{
     width:100vw;
     height:10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color:darkgray;
 }
 
@@ -29,7 +34,7 @@ nav{
 }*/
 
 #section-1{
-    width:80%;
+    width:85%;
     height:100%;
 
     display: flex;
@@ -43,20 +48,73 @@ nav{
     color:black;
 }
 #section-2{
-    width:20%;
+    width:15%;
     height:100%;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 
     border: 0.5px solid black;
 }
 
-#login-button{
+/* #login-button{
     margin-right:2vw;
 }
 
 #logout-button{
     margin-right:2vw;
+} */
+
+#nav-section-1{
+    width:35%;
+    height:100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border:0.5px solid black;
+
+}
+
+.nav-section-1-child{
+    width:30%;
+    height:90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:5px;
+
+    border:0.5px solid black;
+
+}
+
+.nav-section-1-child a{
+    text-decoration: none;
+    color:black;
+}
+
+#nav-section-2{
+    width:30%;
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+#search{
+    width:80%;
+    height:90%;
+}
+
+#nav-section-3{
+    width:35%;
+    height:100%;
+    border:0.5px solid black;
 }

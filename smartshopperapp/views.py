@@ -30,9 +30,13 @@ def display_create_list_page(request):
         return render  (request , 'createlist.html')
 
 def display_category_page(request):
+    #Show all by default
     return render (request , 'selectcategory.html' )
 
-def display_catalogue_page(request , category):
+def display_catalogue_page(request):
+    return render (request , 'catalogue.html')
+
+def display_catalogue_page_with_category(request , category):
     print("Choosen Category: " , category)
 
     #category = {}

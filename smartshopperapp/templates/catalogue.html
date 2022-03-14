@@ -3,6 +3,7 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\cataloguestyle.css'%}?{% now "U" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\confirmlistmodal.css'%}?{% now "U" %}">
 
 {% endblock %}
 {% block title %}Cataloge:{% endblock %} <!--Send category to front for diplay-->
@@ -226,9 +227,41 @@
             </div>
 
             <div id="button-section">
-                <button>Complete List!</button>
+                <button id="completebutton">Complete List!</button>
             </div>
+
+        <div class="confirm-list-modal-container" id="confirm-list-modal-container-id">
+            <div id="confirm-list-modal">
+                <h1> Confirm Cart Items</h1>
+                <div id="confirm-list-content-container">
+
+                </div>
+
+                <div id="confirm-list-button-container">
+                    <button id="confirm-list-back-button">Back</button>
+                    <button id="confirm-list-next-button">Next</button>
+                </div>
+
+            </div>
+        </div>
+
 
         </div>
     </div>
+
+    <script>
+        const open = document.getElementById('completebutton')
+        const modal_container = document.getElementById('confirm-list-modal-container-id')
+        const close = document.getElementById('confirm-list-back-button')
+
+        open.addEventListener('click',() => {
+            modal_container.classList.add('show')
+        })
+
+        close.addEventListener('click',() => {
+            modal_container.classList.remove('show')
+        })
+
+   
+    </script>
 {% endblock %}

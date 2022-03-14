@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+
+.confirm-list-modal-container{
+    /*This is the background of the modal */
+
+    position: fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    top:0;
+    left:0;
+    
+    width:100vw;
+    height:100vh;
+
+    background-color: rgba(0,0,0,0.3);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition: opacity 0.5s ease;
+}
+
+.confirm-list-modal-container.show{
+    pointer-events: auto;
+    opacity:1;
+}
+
+#confirm-list-modal{
+     /*This is the content of the modal */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background-color: #fff;
+
+    max-width:100%;
+    min-width:80%;
+    height:auto;
+
+    padding: 5vh 0 5vh 0;
+
+    border-radius:5px;
+}
+
+#confirm-list-content-container{
+  width:60%;
+  height:50vh; 
+
+}
+
+#confirm-list-button-container{
+    width:20%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
