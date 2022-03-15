@@ -14,7 +14,7 @@
         <div id="section-category-list">
 
             <!--Delete-->
-            <div class="links-container">
+     <!--    <div class="links-container">
                 <a href="" class="category-links">Category</a>
             </div>
             <div class="links-container">
@@ -28,7 +28,141 @@
             </div>
             <div class="links-container">
                 <a href="" class="category-links">Category</a>
+            </div> -->
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">All</a></button>
+                <div class="accordion-content">
+                </div>
             </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Bread & Bakery</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Breads,Rolls & Buns</a></li>
+                        <li><a href="">Baked Goods & Treats</a></li>
+                        <li><a href="">Flat Breads</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Beverages</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Alcohol</a></li>
+                        <li><a href="">Beer & Light Drinks</a></li>
+                        <li><a href="">Coffee & Tea</a></li>
+                        <li><a href="">Drink Mixes</a></li>
+                        <li><a href="">Juices</a></li>
+                        <li><a href="">Milk Based Drinks</a></li>
+                        <li><a href="">Non-Dairy Milks</a></li>
+                        <li><a href="">Soft Drinks</a></li>
+                        <li><a href="">Sports & Energy Drinks</a></li>
+                        <li><a href="">Still & Sparkling Water</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Dairy,Cheese & Eggs</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Butter & Margarine</a></li>
+                        <li><a href="">Cheese</a></li>
+                        <li><a href="">Creams & Dips</a></li>
+                        <li><a href="">Eggs &  Eggs Substitutes</a></li>
+                        <li><a href="">Milk & Cream</a></li>
+                        <li><a href="">Non-Dairy</a></li>
+                        <li><a href="">Yogurt</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Fresh Produce</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Fruits</a></li>
+                        <li><a href="">Vegetables</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Frozen Foods</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Fruits & Vegetables</a></li>
+                        <li><a href="">Frozen Meals</a></li>
+                        <li><a href="">Ice Cream & Desserts</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Health & Household</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Household Items</a></li>
+                        <li><a href="">Personal Care</a></li>
+                        <li><a href="">Baby Essenntials</a></li>
+                        <li><a href="">Pet Care</a></li>
+                        <li><a href="">Automotive</a></li>
+                        <li><a href="">Beauty</a></li>
+                        <li><a href="">Miscellaneous</a></li>
+                        <li><a href="">Appliance & Electronics</a></li>
+                        <li><a href="">Pharmacy</a></li>
+                        <li><a href="">Cleaning Supplies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Meat & Seafood</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Raw Meat Products</a></li>
+                        <li><a href="">Deli Meats</a></li>
+                        <li><a href="">ham & Sausage</a></li>
+                        <li><a href="">Seafood</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Pantry</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Peas & Beans</a></li>
+                        <li><a href="">Canned Foods</a></li>
+                        <li><a href="">Flour & Baking Gods</a></li>
+                        <li><a href="">Oils</a></li>
+                        <li><a href="">Sauces & Condiments</a></li>
+                        <li><a href="">Rice , Pastas & Grains</a></li>
+                        <li><a href="">Spices & Seasonings</a></li>
+                        <li><a href="">Dried & Instant Foods</a></li>
+                        <li><a href="">Cereal & Granola</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion-bttn"><a href="">Snacks</a></button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="">Chips & Crackers</a></li>
+                        <li><a href="">Nuts & Dried Fruit</a></li>
+                        <li><a href="">Flour & Baking Gods</a></li>
+                        <li><a href="">Candy & Chocolate</a></li>
+                        <li><a href="">Cookies</a></li>
+                        <li><a href="">Pudding , Fruit Cups</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+
+           
             <!--Delete-->
 
         </div>
@@ -261,7 +395,22 @@
         close.addEventListener('click',() => {
             modal_container.classList.remove('show')
         })
+    </script>
 
-   
+    <script>
+        document.querySelectorAll('.accordion-bttn').forEach(button =>{
+            button.addEventListener('click',()=>{
+                const accoridionContent = button.nextElementSibling;
+
+                button.classList.toggle('accordion-bttn--active');
+                //button.classList.toggle('accordion-button--active');
+
+                if (button.classList.contains('accordion-bttn--active')){
+                    accoridionContent.style.maxHeight = accoridionContent.scrollHeight + 'px';
+                }else{
+                    accoridionContent.style.maxHeight = 0;
+                }
+            })
+        })
     </script>
 {% endblock %}

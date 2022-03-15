@@ -12,7 +12,7 @@
 
 #section-category-list{
     min-width:10%;
-    height:50vh;
+    height:100vh;
 
     
 
@@ -21,6 +21,9 @@
     align-items: flex-start;
     
     align-self:flex-start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
     
     border:0.5px solid black;
 }
@@ -101,4 +104,45 @@
     align-items: center;   
 
     border:0.5px solid black;
+}
+
+/* Accordion */
+.accordion{
+     width:100%;
+     height:auto;
+}
+.accordion-bttn{
+    display:block;
+    width:100%;
+    min-height:auto;
+    height:8vh;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: lightgray;
+    color:white;
+    text-align:left;
+    /*transition: background 0.2s;*/
+}
+
+.accordion-bttn::after{
+    content: '\25be';
+    float: right;
+    transform: scale (1.5);
+}
+
+.accordion-bttn--active{
+    background-color: #55555555;
+}
+
+.accordion-bttn--active::after{
+    content: '\25b4';
+    float: right;
+    transform: scale (1.5);
+}
+
+.accordion-content{
+    overflow:hidden;
+    max-height:0;
+    transition:max-height 0.2s;
 }
