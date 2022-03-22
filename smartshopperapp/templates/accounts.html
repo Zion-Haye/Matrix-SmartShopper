@@ -1,0 +1,49 @@
+{% extends "basetemplate1.html" %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\homestyle.css' %}?{% now "U" %}">
+
+{% endblock %}
+{% block title %}My Account{% endblock %}
+
+{% block content %}
+    <div id="content">
+
+        <div id="account-content-container">
+
+            {% if user.is_authenticated %}
+            <div class="">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="{{user.username}}" disabled >
+            </div>
+            <div class="">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
+            </div>
+            <div class="">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
+            </div>
+            <div class="">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="{{user.email}}" disabled>
+            </div>
+            {% endif %}
+      
+
+            <div id="edit-button-container">
+                <button>Edit Details</button>
+            </div>
+
+            <div id="edit-button-container">
+                <button>Change Password</button>
+            </div>
+
+            <div id="delete-button-container">
+                <button>Delete Account</button>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

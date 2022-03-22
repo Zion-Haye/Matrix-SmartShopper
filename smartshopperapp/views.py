@@ -52,8 +52,32 @@ def display_search_results_page(request):
     return render (request, 'searchresult.html')
 
 def display_account_page(request):
+
+    if request.user.is_authenticated:
+        user = request.user
+
+        print('In Accounts')
+        firstname = user.first_name
+        lastname = user.last_name
+
     return render (request, 'accounts.html')
 
+def display_configure_results_page(request):
+
+    if request.method=="POST":
+        priority = request.POST.get('priority')
+        location= None
+
+        if ((priority == "Closest") or (priority== "Cheapest and Closest")):
+            location = request.POST.get('location')
+        
+        print("In Configure results POST")
+        print(priority)
+        print(location)
+
+    return render (request, 'configureresults.html')
+
+#Authentications views
 
 def display_signup_page(request):
 

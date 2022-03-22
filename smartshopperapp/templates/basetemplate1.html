@@ -64,6 +64,7 @@
 
        <div id="nav-section-2">
             <form action="" method="POST">
+                {% csrf_token %}
                 <input type="text" name="search" id="search" placeholder="Search">
             </form>
         </div>

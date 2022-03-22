@@ -1,0 +1,54 @@
+{% extends "basetemplate1.html" %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\configureresultsstyle.css' %}?{% now "U" %}">
+
+{% endblock %}
+{% block title %}Configure Results{% endblock %}
+
+{% block content %}
+    <div id="content">
+
+        <h1>Configure Search Results</h1>
+
+        <form id="configure-results-form" action="/ConfigureResults/" method="POST">
+
+            <div id="radio-group-container">
+                {% csrf_token %}
+                <div class="radio-item">
+                    <input type="radio" id="cheapest-option" name="priority" value="Cheapest" required>
+                    <label for="cheapest-option">Cheapest</label>
+                </div>
+
+                <div class="radio-item">
+                    <input type="radio" id="closest-option" name="priority" value="Closest">
+                    <label for="closest-option">Closest</label>
+                </div>
+
+                <div class="radio-item">
+                    <input type="radio" id="cheapest-closest-option" name="priority" value="Cheapest and Closest">
+                    <label for="cheapest-closest-option">Cheapest and Closest</label>
+                </div>
+            </div>
+
+            <div id="location-selection-box">
+                <label for="locations">Select A Location:</label>
+
+                <select name="location" id="locations">
+                    <option value="Arima">Arima</option>
+                    <option value="Trincity">Trincity</option>
+                    <option value="Port of Spain">Port of Spain</option>
+                    <option value="Penal">Penal</option>
+                </select>
+            </div>
+
+            <div id="button-container">
+                <button type="submit">Submit!</button>
+            </div>
+        </form>
+
+      
+
+    </div>
+{% endblock %}

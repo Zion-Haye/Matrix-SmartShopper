@@ -1,0 +1,41 @@
+#content{
+    width:100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#configure-results-form{
+    width:80%;
+    height:60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+
+    border:0.5px solid black;
+
+
+}
+
+#radio-group-container{
+    width:50%;
+    height: auto;
+}
+
+.radio-item{
+    width:100%;
+    height:auto;
+
+    border:0.5px solid black;
+}
+
+#button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

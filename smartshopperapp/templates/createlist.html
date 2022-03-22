@@ -21,8 +21,10 @@
             <form action="/CreateList/" method="POST">
                 {% csrf_token %}
 
+                <label for="listname">Name of List:</label>
                 <input type="text" name="listname" id="listname" placeholder="Name of List" required>
 
+                <label for="description">Description:</label>
                 <input type="textarea" name="description" id="description" placeholder="Description (optional)">
 
                 <button type="submit">Save and Continue</button>
