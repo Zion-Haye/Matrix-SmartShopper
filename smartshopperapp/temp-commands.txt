@@ -1,0 +1,50 @@
+
+Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+Test
+python manage.py test smartshopperapp
+
+Models
+
+    Model Query
+
+        All objects
+            Object.all()
+            modelname.objects.all()
+            e.g.products = Product.objects.all()
+            returns - queryset
+
+        Firt object
+        Object.all()
+            Object.all()[0]
+            modelname.objects.all()[0]
+            e.g.products = Product.objects.all()[0]
+            returns - queryset
+        
+        Order By
+        .order_by('nameoffield')
+
+    Model Creation
+
+        variablename =  modelname()
+        e.g. product = Product()
+
+    Model set Atttribite
+
+        product.name = "name"
+
+    Model Get Attibute
+
+        productname = product.name
+
+    Model Save
+        product.save()
+
+    Parsing to front end
+
+        Method 1:
+        products= Products.objects.all()
+        {'products':products}
+
