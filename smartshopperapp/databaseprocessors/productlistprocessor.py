@@ -23,14 +23,24 @@ def get_products_by_subcategory(subcategory):
     else:
         return None
 
+def get_product_by_id(product_id):
+     
+    product = Product.objects.all().filter(id=product_id)
+    
+
+    if product.exists():
+        product = Product.objects.get(id=product_id)
+        return product
+    else:
+        return None
 
 
 def populate_product_pool_database():
     products = Product.objects.all()
-    print(products)
+    #print(products)
 
     if not products.exists():
-        print("None None None")
+        #print("None None None")
 
         with open('smartshopperapp\datasheets\productpoolv1.csv') as csv_file:
             csv_reader = csv.reader(csv_file)

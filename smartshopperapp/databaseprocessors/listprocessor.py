@@ -43,5 +43,13 @@ def get_registered_user_active_list(user):
     else:
         return None
 
+def find_list_by_id():
+    pass
+
+def delete_list_by_id():
+    pass
+
+def get_registered_user_active_list_count(user):
+    num_items 
     
     

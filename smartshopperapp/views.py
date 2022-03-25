@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .databaseprocessors.productlistprocessor import *
 from .databaseprocessors.listprocessor import *
+from .databaseprocessors.listitemprocessor import *
 
 # Create your views here.
 
@@ -47,6 +48,17 @@ def display_category_page(request):
 
 def display_catalogue_page(request):
     products_by_category = get_products_by_category("Bread & Bakery")
+
+    if request.user.is_authenticated:
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+        listitems = get_registered_user_list_items(activelist)
+        print(listitems)
+        #,{'listitems':listitems}
+
+        return render (request , 'catalogue.html' , {'listitems':listitems} )
+
+
     return render (request , 'catalogue.html' , {'products':products_by_category})
 
 def display_catalogue_page_with_category(request , category):
@@ -92,7 +104,7 @@ def display_configure_results_page(request):
 
     return render (request, 'configureresults.html')
 
-def add_product_to_list(request , product_id):
+def add_product_to_list(request):
 
     if request.method=="POST":
         quantity = request.POST.get('product_quantity')
@@ -101,6 +113,13 @@ def add_product_to_list(request , product_id):
         print("In Add Product To List")
         print(quantity)
         print(product_id)
+
+        product = get_product_by_id(product_id)
+
+        if request.user.is_authenticated:
+            user = request.user
+            activelist = get_registered_user_active_list(user)
+            add_item_to_list_items(activelist , product ,quantity)
 
     return redirect('/Catalogue/')
 

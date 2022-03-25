@@ -20,7 +20,7 @@
             </div> -->
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Bread & Bakery">Bread & Bakery</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Bread & Bakery">Bread & Bakery</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Breads, Rolls & Buns">Breads, Rolls & Buns</a></li>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Beverages">Beverages</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Beverages">Beverages</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Alcohol">Alcohol</a></li>
@@ -48,7 +48,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Diary, Cheese & Eggs">Dairy, Cheese & Eggs</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Dairy, Cheese & Eggs">Dairy, Cheese & Eggs</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Butter & Margarine">Butter & Margarine</a></li>
@@ -63,7 +63,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Fresh Produce">Fresh Produce</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Fresh Produce">Fresh Produce</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Fruits">Fruits</a></li>
@@ -73,7 +73,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Frozen Foods">Frozen Foods</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Frozen Foods">Frozen Foods</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Frozen Meals">Frozen Meals</a></li>
@@ -84,7 +84,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Health & Household">Health & Household</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Health & Household">Health & Household</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Household Items">Household Items</a></li>
@@ -108,7 +108,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Meat & Seafood">Meat & Seafood</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Meat & Seafood">Meat & Seafood</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Meat Products">Meat Products</a></li>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Pantry">Pantry</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Pantry">Pantry</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Peas & Beans">Peas & Beans</a></li>
@@ -137,7 +137,7 @@
             </div>
 
             <div class="accordion">
-                <button type="button" class="accordion-bttn"><a href="/Catalogue/Snacks">Snacks</a></button>
+                <button type="button" class="accordion-bttn"><a href="/Catalogue/Category/Snacks">Snacks</a></button>
                 <div class="accordion-content">
                     <ul>
                         <li><a href="/Catalogue/SubCategory/Chips & Crackers">Chips & Crackers</a></li>
@@ -167,7 +167,7 @@
                         <div class="catalogue-items-content-container">
                             <p>{{product.full_item_name}}</p>
                         </div>
-                        <form id="catalogue-item-form" action="" method="POST">
+                        <form id="catalogue-item-form" action="/AddProductToList/" method="POST">
                             {% csrf_token %}
 
                             <div>
@@ -196,40 +196,15 @@
 
             <div id="items-section">
 
-                <div></div>
-
+                {% if listitems != None %}
                 
-                <div class="cart-items">
+                    {% for listitem in listitems %}
+                        <div class="cart-items">
+                            <p>{{listitem.product.brand_name}}</p>
+                        </div>
 
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-
-                </div>
-                <div class="cart-items">
-                    <p>Item</p>
-                </div>
-                
+                    {% endfor %}
+                {% endif %}             
 
             </div>
 
