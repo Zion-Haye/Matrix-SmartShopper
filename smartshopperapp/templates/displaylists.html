@@ -1,0 +1,37 @@
+{% extends "basetemplate1.html" %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\displaylistsstyle.css' %}?{% now "U" %}">
+
+{% endblock %}
+{% block title %}My Lists{% endblock %}
+
+{% block content %}
+    <div id="content">
+
+        <table id="list-table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date Created</th>
+                <th>options</th>
+            </tr>
+
+            {% if lists != None %}
+                {% for list in lists %}
+                    <tr>
+                        <td>{{list.name}}</td>
+                        <td>{{list.description}}</td>
+                        <td>{{list.date_created}}</td>
+                        <td><button>Edit</button></td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                {% endfor %}
+        </table>
+            {% else %}
+                    <p>Litst Empty</p>
+            {% endif %}
+        
+    </div>
+{% endblock %}

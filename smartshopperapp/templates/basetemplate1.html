@@ -34,7 +34,7 @@
                 <!-- <button id="logout-button" onclick="window.location.href='/Logout/'">Logout</button> -->
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      Profile
+                      Profile: {{user.username}}
                     </a>
                   
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -70,7 +70,18 @@
         </div>
 
         <div id="nav-section-3">
-           
+
+            {% if user.is_authenticated %}
+
+                <div class="nav-section-3-child" id="nav-section-3-child-1">
+                    <a href="/MyLists/">My Lists</a>
+                </div>
+
+            {% endif %}
+
+            <div class="nav-section-3-child" id="nav-section-3-child-2">
+                <button><a href="/">Home</a></button>
+            </div>
         </div>
     </nav>
     <body>

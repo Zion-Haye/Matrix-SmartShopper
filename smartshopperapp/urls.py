@@ -12,6 +12,10 @@ urlpatterns = [
     path('Logout/', views.logout_user , name="logout"),
     path('Accounts/',views.display_account_page, name="accounts"),
     path('SearchResults/',views.display_search_results_page, name="search_results"),
-    path('ConfigureResults/',views.display_configure_results_page, name="configure_results")
+    path('ConfigureResults/',views.display_configure_results_page, name="configure_results"),
+
+    path('Catalogue/SubCategory/<subcategory>',views.display_catalogue_page_with_subcategory, name="display_catalogue_subcategory"),
+    path('Catalogue/AddProductToList/<product_id>',views.add_product_to_list , name="addproducttolist"),
+    path('MyLists/',views.display_my_lists, name="display_my_last")
     
 ]

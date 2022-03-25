@@ -116,5 +116,27 @@ nav{
 #nav-section-3{
     width:35%;
     height:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+.nav-section-3-child a{
+    text-decoration: none;
+    color:black;
+}
+
+.nav-section-3-child{
+    width:30%;
+    height:90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:5px;
+
     border:0.5px solid black;
 }

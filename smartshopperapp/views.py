@@ -1,8 +1,12 @@
 import email
+from itertools import product
 from django.shortcuts import render , redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .models import *
+from .databaseprocessors.productlistprocessor import *
+from .databaseprocessors.listprocessor import *
 
 # Create your views here.
 
@@ -10,18 +14,26 @@ def display_home_page(request):
     isauthenticated = request.user.is_authenticated
     print("In Home:")
     print("Is Authenticated: ", isauthenticated)
+
+
+    populate_product_pool_database()
+
     return render (request, 'home.html')
 
 def display_create_list_page(request):
 
     if request.method=="POST":
         listname = request.POST.get('listname')
-        description = request.POST.get('description')
+        listdescription = request.POST.get('description')
        
 
         print("In Create List Post Request")
         print("listname: ",listname)
-        print("description: ",description)
+        print("description: ",listdescription)
+
+        if request.user.is_authenticated:
+            user = request.user
+            create_list_registered_user(listname , listdescription , user)
 
         return  redirect ('/SelectCategory/')
     
@@ -34,19 +46,22 @@ def display_category_page(request):
     return render (request , 'selectcategory.html' )
 
 def display_catalogue_page(request):
-    return render (request , 'catalogue.html')
+    products_by_category = get_products_by_category("Bread & Bakery")
+    return render (request , 'catalogue.html' , {'products':products_by_category})
 
 def display_catalogue_page_with_category(request , category):
     print("Choosen Category: " , category)
 
-    #category = {}
-    #category['category']=category
+    products_by_category = get_products_by_category(category)
 
-    #return render (request , 'catalogue.html' , {'title': 'Portfolio'})
-    #return render (request , 'catalogue.html' , category)
+    return render (request , 'catalogue.html', {'products':products_by_category})
 
-    #Look into emplate respone
-    return render (request , 'catalogue.html')
+def display_catalogue_page_with_subcategory(request , subcategory):
+
+    print("In SubCategory")
+    print(subcategory)
+    products_by_sub_category = get_products_by_subcategory(subcategory)
+    return render(request, 'catalogue.html', {'products':products_by_sub_category})
 
 def display_search_results_page(request):
     return render (request, 'searchresult.html')
@@ -76,6 +91,28 @@ def display_configure_results_page(request):
         print(location)
 
     return render (request, 'configureresults.html')
+
+def add_product_to_list(request , product_id):
+
+    if request.method=="POST":
+        quantity = request.POST.get('product_quantity')
+        product_id = request.POST.get('product_id')
+
+        print("In Add Product To List")
+        print(quantity)
+        print(product_id)
+
+    return redirect('/Catalogue/')
+
+def display_my_lists(request):
+    
+    if request.user.is_authenticated:
+        user = request.user
+        current_user_lists = get_registered_user_lists(user)
+
+        return render(request ,  'displaylists.html' , {'lists':current_user_lists})
+
+
 
 #Authentications views
 

@@ -1,0 +1,13 @@
+
+    product_category = "Beverage"
+    sub_category = "Alcohol"
+    brand_name = "19 Crimes"
+    full_item_name = "19 CRIMES BANISHED"
+    item_name = "19 CRIMES BANISHED"
+    quantity = ""
+    image_url = "https://shop.doortodoortt.com/trincity/wp-content/uploads/2020/12/19-CRIMES-BANISHED-250x250.png"
+
+    product = Product(category=product_category , sub_category=sub_category,
+        brand_name = brand_name , full_item_name=full_item_name,
+        item_name=item_name,quantity=quantity,image=image_url)
+    product.save()

@@ -25,7 +25,7 @@ class Configuration (models.Model):
 
 class List (models.Model):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=50, null=False)
+    description = models.CharField(max_length=50, null=True)
     is_Active = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
