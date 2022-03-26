@@ -46,8 +46,12 @@ def get_registered_user_active_list(user):
 def find_list_by_id():
     pass
 
-def delete_list_by_id():
-    pass
+def delete_list_by_id(list_id):
+    list = List.objects.all().filter(id=list_id)
+
+    if list.exists():
+        list = List.objects.get(id=list_id)
+        list.delete()
 
 def get_registered_user_active_list_count(user):
     num_items 

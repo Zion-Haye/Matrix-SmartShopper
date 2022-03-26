@@ -200,10 +200,34 @@
                 
                     {% for listitem in listitems %}
                         <div class="cart-items">
-                            <p>{{listitem.product.brand_name}}</p>
+                            <div class="cart-items-image-container">
+                                <img src="{{listitem.product.image}}">
+                            </div>
+
+                            <div class="cart-items-content-container">
+                                <div class="cart-items-description">
+                                    <p>{{listitem.product.full_item_name}}</p>
+                                </div>
+                                <form class="cart-items-form">
+
+                                    <div>
+                                        <label for="quantity">Quantity:</label>
+                                        <input type="number" id="product_quantity" name="product_quantity" min="0" value="{{listitem.item_quantity}}">
+                                    </div>
+
+                                    <div class="form-button-container">
+                                        <button>Update</button>
+                                        <button  onclick="window.location.href='/DeleteProductFromList/{{listitem.product.id}}/'">Remove</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
                         </div>
 
                     {% endfor %}
+
+                {% else %}
+                        <p>Cart is Empty</p>
                 {% endif %}             
 
             </div>

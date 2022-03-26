@@ -25,7 +25,7 @@
                         <td>{{list.description}}</td>
                         <td>{{list.date_created}}</td>
                         <td><button>Edit</button></td>
-                        <td><button>Delete</button></td>
+                        <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
                     </tr>
                 {% endfor %}
         </table>

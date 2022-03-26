@@ -16,7 +16,7 @@ def add_item_to_list_items(list , product, quantity):
             listitem = ListItem(list=list , product=product , item_quantity=quantity)
             listitem.save()
 
-def get_registered_user_list_items(list):
+def get_list_items(list):
     active_list_items = ListItem.objects.all().filter(list=list)
 
     if active_list_items.exists():
@@ -24,8 +24,16 @@ def get_registered_user_list_items(list):
     else:
         return None
 
-def delete_item_from_list_item():
-    pass
+def delete_item_from_list_item(list , product):
+
+    if (list!=None) and (product!=None):
+        listitem = ListItem.objects.all().filter(list=list , product=product)
+    
+        if listitem.exists():
+            listitem = ListItem.objects.get(list=list , product=product)
+            listitem.delete()
+
+        #look into delete , do i need to save?
 
 def get_num_items_in_list_item():
     pass

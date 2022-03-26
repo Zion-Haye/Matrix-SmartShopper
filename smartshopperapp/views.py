@@ -11,6 +11,7 @@ from .databaseprocessors.listitemprocessor import *
 
 # Create your views here.
 
+#Pages
 def display_home_page(request):
     isauthenticated = request.user.is_authenticated
     print("In Home:")
@@ -20,27 +21,6 @@ def display_home_page(request):
     populate_product_pool_database()
 
     return render (request, 'home.html')
-
-def display_create_list_page(request):
-
-    if request.method=="POST":
-        listname = request.POST.get('listname')
-        listdescription = request.POST.get('description')
-       
-
-        print("In Create List Post Request")
-        print("listname: ",listname)
-        print("description: ",listdescription)
-
-        if request.user.is_authenticated:
-            user = request.user
-            create_list_registered_user(listname , listdescription , user)
-
-        return  redirect ('/SelectCategory/')
-    
-    else:
-
-        return render  (request , 'createlist.html')
 
 def display_category_page(request):
     #Show all by default
@@ -52,11 +32,11 @@ def display_catalogue_page(request):
     if request.user.is_authenticated:
         user = request.user
         activelist = get_registered_user_active_list(user)
-        listitems = get_registered_user_list_items(activelist)
+        listitems = get_list_items(activelist)
         print(listitems)
         #,{'listitems':listitems}
 
-        return render (request , 'catalogue.html' , {'listitems':listitems} )
+        return render (request , 'catalogue.html' , {'products':products_by_category, 'listitems':listitems } )
 
 
     return render (request , 'catalogue.html' , {'products':products_by_category})
@@ -104,7 +84,38 @@ def display_configure_results_page(request):
 
     return render (request, 'configureresults.html')
 
+# Product and List
+def display_create_list_page(request):
+
+    if request.method=="POST":
+        listname = request.POST.get('listname')
+        listdescription = request.POST.get('description')
+       
+
+        print("In Create List Post Request")
+        print("listname: ",listname)
+        print("description: ",listdescription)
+
+        if request.user.is_authenticated:
+            user = request.user
+            create_list_registered_user(listname , listdescription , user)
+
+        return  redirect ('/SelectCategory/')
+    
+    else:
+
+        if request.user.is_authenticated:
+            user = request.user
+            current_user_lists = get_registered_user_lists(user)
+
+            return render  (request , 'createlist.html', {'lists':current_user_lists})
+
+
+        return render  (request , 'createlist.html')
+
 def add_product_to_list(request):
+
+    #where to redirect when theres no active list to add to
 
     if request.method=="POST":
         quantity = request.POST.get('product_quantity')
@@ -131,7 +142,25 @@ def display_my_lists(request):
 
         return render(request ,  'displaylists.html' , {'lists':current_user_lists})
 
+def delete_list(request , list_id):
 
+    if request.user.is_authenticated:
+        delete_list_by_id(list_id)
+
+        return redirect('/MyLists/')
+
+def delete_product_from_list(request, product_id):
+
+    print("In Delete product from list")
+
+    if request.user.is_authenticated:
+        print("In Delete product from list - if authenticated")
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+        product = get_product_by_id(product_id)
+        delete_item_from_list_item(activelist , product)
+
+        return redirect ('/Catalogue/')
 
 #Authentications views
 

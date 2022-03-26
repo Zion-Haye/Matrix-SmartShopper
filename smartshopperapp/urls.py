@@ -14,8 +14,10 @@ urlpatterns = [
     path('SearchResults/',views.display_search_results_page, name="search_results"),
     path('ConfigureResults/',views.display_configure_results_page, name="configure_results"),
 
-    path('Catalogue/SubCategory/<subcategory>',views.display_catalogue_page_with_subcategory, name="display_catalogue_subcategory"),
+    path('Catalogue/SubCategory/<subcategory>/',views.display_catalogue_page_with_subcategory, name="display_catalogue_subcategory"),
     path('AddProductToList/',views.add_product_to_list , name="addproducttolist"),
-    path('MyLists/',views.display_my_lists, name="display_my_last")
+    path('MyLists/',views.display_my_lists, name="display_my_last"),
+    path('DeleteList/<list_id>/', views.delete_list , name="deletelist"),
+    path('DeleteProductFromList/<product_id>/', views.delete_product_from_list , name="deleteproduct")
     
 ]

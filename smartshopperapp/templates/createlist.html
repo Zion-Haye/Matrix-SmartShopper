@@ -15,7 +15,7 @@
         <div id="section-create-list" class="content-child">
 
             <h1>Create a new List</h1>
-      <!--       <p>{{firstname}}</p> -->
+
             
 
             <form action="/CreateList/" method="POST">
@@ -28,16 +28,44 @@
                 <input type="textarea" name="description" id="description" placeholder="Description (optional)">
 
                 <button type="submit">Save and Continue</button>
-
-               <!--<button onclick="window.location.href='/SelectCategory/'"> Save and Continue </button>-->
             
                 <button onclick="window.location.href='/'"> Go Back </button>
             </form>
         </div>
 
-        <!---->
+
 
         <div id="section-display-options" class="content-child">
+
+            {% if user.is_authenticated %}
+
+                
+            <div id="section-display-lists">
+                <table id="list-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Date Created</th>
+                        <th>options</th>
+                    </tr>
+        
+                    {% if lists != None %}
+                        {% for list in lists %}
+                            <tr>
+                                <td>{{list.name}}</td>
+                                <td>{{list.description}}</td>
+                                <td>{{list.date_created}}</td>
+                                <td><button>Edit</button></td>
+                                <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
+                            </tr>
+                        {% endfor %}
+                </table>
+                    {% else %}
+                            <p>Litst Empty</p>
+                    {% endif %}
+            </div>
+
+            {% else %}
 
             <div id="section-login-signup">
                 <h1>Already have an account?</h1>
@@ -49,12 +77,9 @@
                 <button> <a href="/SignUp">Create An Account!</a></button>
             </div>
 
-            <!-- Optional Code Below Here-->
-            <!--
-            <div id="section-display-lists">
 
-            </div>
-            -->
+            {% endif %}
+
 
         </div>
     </div>
