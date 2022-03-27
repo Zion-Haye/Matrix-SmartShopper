@@ -1,0 +1,13 @@
+Modals:
+-create list
+-edit list
+
+-edit account details (check functionality)
+-change password (check funcionality)
+
+-modal to create list if one hasnt been when try to add item to create (return to createlist page)
+
+
+Other
+-cartt section - show cart name and amount
+-cart popup

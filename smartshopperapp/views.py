@@ -36,7 +36,13 @@ def display_catalogue_page(request):
         print(listitems)
         #,{'listitems':listitems}
 
-        return render (request , 'catalogue.html' , {'products':products_by_category, 'listitems':listitems } )
+        context={
+            'products':products_by_category, 
+            'listitems':listitems, 
+            'confirmlistitems':listitems
+        }
+
+        return render (request , 'catalogue.html' , context )
 
 
     return render (request , 'catalogue.html' , {'products':products_by_category})

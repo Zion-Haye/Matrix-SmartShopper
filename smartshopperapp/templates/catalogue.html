@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\cataloguestyle.css'%}?{% now "U" %}">
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\confirmlistmodal.css'%}?{% now "U" %}">
 
+
 {% endblock %}
 {% block title %}Cataloge:{% endblock %} <!--Send category to front for diplay-->
 
@@ -240,6 +241,36 @@
             <div id="confirm-list-modal">
                 <h1> Confirm Cart Items</h1>
                 <div id="confirm-list-content-container">
+
+                    {% if confirmlistitems != None %}
+
+                        {% for confirmlistitem in confirmlistitems %}
+                            <div class="confirm-list-item-container">
+
+                                <div class="confirm-list-item-image-container">
+                                    <img src="{{confirmlistitem.product.image}}">
+                                </div>
+
+                                <div class="confirm-list-item-content-container">
+                                    <div>
+                                        <p>{{confirmlistitem.product.full_item_name}}</p>
+                                    </div>
+                                    <div>
+
+                                    </div>
+                                </div>
+                                <div class = "confirm-list-item-button-container">
+                                    <button>Update</button>
+                                    <button  onclick="window.location.href='/DeleteProductFromList/{{confirmlistitem.product.id}}/'">Remove</button>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
+                        <p>Cart is Empty</p>
+
+                    {% endif %}
 
                 </div>
 
