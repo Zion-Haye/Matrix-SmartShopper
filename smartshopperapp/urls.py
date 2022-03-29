@@ -18,6 +18,8 @@ urlpatterns = [
     path('AddProductToList/',views.add_product_to_list , name="addproducttolist"),
     path('MyLists/',views.display_my_lists, name="display_my_last"),
     path('DeleteList/<list_id>/', views.delete_list , name="deletelist"),
-    path('DeleteProductFromList/<product_id>/', views.delete_product_from_list , name="deleteproduct")
+    path('DeleteProductFromList/<product_id>/', views.delete_product_from_list , name="deleteproduct"),
+    path('EditList/<list_id>/', views.edit_list_details , name="editdetailslist"),
+    path('ViewListItems/<list_id>/', views.display_list_items , name="display_list_items")
     
 ]

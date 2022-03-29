@@ -45,6 +45,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Active</th>
                         <th>Date Created</th>
                         <th>options</th>
                     </tr>
@@ -54,8 +55,15 @@
                             <tr>
                                 <td>{{list.name}}</td>
                                 <td>{{list.description}}</td>
+                                {% if list.is_Active == True %}
+                                    <td>&#10003;</td>
+                                {% else %}
+                                    <td>&#9587;</td>
+                                {% endif %}
                                 <td>{{list.date_created}}</td>
-                                <td><button>Edit</button></td>
+                                <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'">View Items</button></td> 
+                                <td><button onclick="window.location.href=''">Make Active</button></td> 
+                                <td><button onclick="window.location.href='/EditList/{{list.id}}/'">Edit</button></td>
                                 <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
                             </tr>
                         {% endfor %}

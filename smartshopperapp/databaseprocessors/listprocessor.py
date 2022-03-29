@@ -43,8 +43,15 @@ def get_registered_user_active_list(user):
     else:
         return None
 
-def find_list_by_id():
-    pass
+def find_list_by_id(list_id):
+    list = List.objects.all().filter(id=list_id)
+
+    if list.exists():
+        list = List.objects.get(id=list_id)
+        return list
+    
+    else:
+        return None
 
 def delete_list_by_id(list_id):
     list = List.objects.all().filter(id=list_id)
@@ -53,7 +60,23 @@ def delete_list_by_id(list_id):
         list = List.objects.get(id=list_id)
         list.delete()
 
+def edit_list_object_details(list_id, list_name, list_description):
+    list = find_list_by_id(list_id)
+
+    if list!=None:
+        list.name = list_name
+        list.description = list_description
+        list.save()
+
 def get_registered_user_active_list_count(user):
     num_items 
+    pass
     
     
+
+def make_list_active(list_id):
+    pass
+
+
+
+#what if i delete the active list

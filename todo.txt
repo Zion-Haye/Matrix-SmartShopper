@@ -1,6 +1,6 @@
 Modals:
 -create list
--edit list
+
 
 -edit account details (check functionality)
 -change password (check funcionality)
@@ -11,3 +11,13 @@ Modals:
 Other
 -cartt section - show cart name and amount
 -cart popup
+
+Note:
+
+create list will take you to teh create ist page
+if you try to add to a lis with no active list , it will take you to the create page
+
+
+
+Figure out:
+My List page what happens when view items is clicked on an empty list.

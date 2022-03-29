@@ -3,6 +3,8 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\displaylistsstyle.css' %}?{% now "U" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\editlistmodal.css' %}?{% now "U" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\viewitemsmodal.css' %}?{% now "U" %}">
 
 {% endblock %}
 {% block title %}My Lists{% endblock %}
@@ -14,6 +16,7 @@
             <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Active</th>
                 <th>Date Created</th>
                 <th>options</th>
             </tr>
@@ -23,8 +26,15 @@
                     <tr>
                         <td>{{list.name}}</td>
                         <td>{{list.description}}</td>
+                        {% if list.is_Active == True %}
+                            <td>&#10003;</td>
+                        {% else %}
+                            <td>&#9587;</td>
+                        {% endif %}
                         <td>{{list.date_created}}</td>
-                        <td><button>Edit</button></td>
+                        <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'">View Items</button></td> 
+                        <td><button onclick="window.location.href=''">Make Active</button></td> 
+                        <td><button onclick="window.location.href='/EditList/{{list.id}}/'">Edit</button></td> 
                         <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
                     </tr>
                 {% endfor %}
@@ -32,6 +42,105 @@
             {% else %}
                     <p>Litst Empty</p>
             {% endif %}
+
+
+        {% if listtoedit != None %}
+            <div class="edit-list-modal-container" id="edit-list-modal-container-id">
+                <div id="edit-list-modal">
+                    <h1> Edit List Details</h1>
+                    <div id="edit-list-content-container">
+                        <form class="edit-list-modal-form" action="/EditList/{{listtoedit.id}}/" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <label for="listname">Name of List:</label>
+                                <input type="text" name="listname" id="listname" value="{{listtoedit.name}}" required>
+                            </div>
+            
+                            <div>
+                                <label for="description">Description:</label>
+                                <input type="textarea" name="description" id="description" value="{{listtoedit.description}}">
+                            </div>
+
+                            <div>
+                                <button type="submit">Save Changes</button>
+                            </div>
+                        </form>
+                        <div>
+                            <button id="edit-list-back-button">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if listitems != None %}
+        <div class="view-list-modal-container" id="view-list-modal-container-id">
+            <div id="view-list-modal">
+                <h1> List Items</h1>
+                <div id="view-list-content-container">
+
+                    {% if listitems != None %}
+
+                        {% for listitem in listitems %}
+                            <div class="view-list-item-container">
+
+                                <div class="view-list-item-image-container">
+                                    <img src="{{listitem.product.image}}">
+                                </div>
+
+                                <div class="view-list-item-content-container">
+                                    <div>
+                                        <p>{{listitem.product.full_item_name}}</p>
+                                    </div>
+                                    <div>
+
+                                    </div>
+                                </div>
+                                <div class = "view-list-item-button-container">
+                                    <button>Update</button>
+                                    <button  onclick="window.location.href='/DeleteProductFromList/{{confirmlistitem.product.id}}/'">Remove</button>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
+                        <p>Cart is Empty</p>
+                    {% endif %}
+
+                </div>
+
+                <div id="view-list-button-container">
+                    <button id="view-list-back-button">Back</button>
+            <!--         <button onclick="window.location.href='/ConfigureResults/'" id="confirm-list-next-button">Next</button> -->
+                </div>
+
+            </div>
+        </div>
+
+        {% endif %}
+    
         
     </div>
+    <script>
+        const modal_container = document.getElementById('edit-list-modal-container-id')
+        const close = document.getElementById('edit-list-back-button')
+
+        modal_container.classList.add('show')
+
+        close.addEventListener('click',() => {
+            modal_container.classList.remove('show')
+        })
+    </script>
+
+    <script>
+        const view_list_modal_container = document.getElementById('view-list-modal-container-id')
+        const view_list_close = document.getElementById('view-list-back-button')
+
+        view_list_modal_container.classList.add('show')
+
+        view_list_close.addEventListener('click',() => {
+            view_list_modal_container.classList.remove('show')
+        })
+    </script>
 {% endblock %}

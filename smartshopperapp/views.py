@@ -33,13 +33,12 @@ def display_catalogue_page(request):
         user = request.user
         activelist = get_registered_user_active_list(user)
         listitems = get_list_items(activelist)
-        print(listitems)
-        #,{'listitems':listitems}
 
         context={
             'products':products_by_category, 
             'listitems':listitems, 
-            'confirmlistitems':listitems
+            'confirmlistitems':listitems,
+            'activelist':activelist
         }
 
         return render (request , 'catalogue.html' , context )
@@ -52,14 +51,43 @@ def display_catalogue_page_with_category(request , category):
 
     products_by_category = get_products_by_category(category)
 
-    return render (request , 'catalogue.html', {'products':products_by_category})
+    if request.user.is_authenticated:
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+        listitems = get_list_items(activelist)
+
+        context={
+            'products':products_by_category, 
+            'listitems':listitems, 
+            'confirmlistitems':listitems,
+            'activelist':activelist
+        }
+
+    
+
+    return render (request , 'catalogue.html', context)
 
 def display_catalogue_page_with_subcategory(request , subcategory):
 
     print("In SubCategory")
     print(subcategory)
     products_by_sub_category = get_products_by_subcategory(subcategory)
-    return render(request, 'catalogue.html', {'products':products_by_sub_category})
+
+    if request.user.is_authenticated:
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+        listitems = get_list_items(activelist)
+
+        context={
+            'products':products_by_sub_category, 
+            'listitems':listitems, 
+            'confirmlistitems':listitems,
+            'activelist':activelist
+
+        }
+
+    
+    return render(request, 'catalogue.html', context)
 
 def display_search_results_page(request):
     return render (request, 'searchresult.html')
@@ -167,6 +195,53 @@ def delete_product_from_list(request, product_id):
         delete_item_from_list_item(activelist , product)
 
         return redirect ('/Catalogue/')
+
+def edit_list_details(request, list_id):
+    print("In edit List Details")
+    if request.user.is_authenticated:
+        user = request.user
+        current_user_lists = get_registered_user_lists(user)
+
+
+
+        if request.method=="POST":
+            print("In edit List Details - POST")
+
+            list_name = request.POST.get('listname')
+            list_description = request.POST.get('description')
+
+            edit_list_object_details(list_id, list_name, list_description)
+
+            current_user_lists = get_registered_user_lists(user)
+            context={
+                'lists':current_user_lists
+            }
+
+        else:
+
+            list_to_edit = find_list_by_id(list_id)
+            context={
+                'lists':current_user_lists,
+                'listtoedit': list_to_edit
+            }
+
+        return render(request ,  'displaylists.html' , context)
+
+def display_list_items(request , list_id):
+    print("In Display List Items")
+    if request.user.is_authenticated:
+        user = request.user
+        current_user_lists = get_registered_user_lists(user)
+        list = find_list_by_id(list_id)
+        list_items = get_list_items(list)
+
+        context={
+            'lists':current_user_lists,
+            'listitems':list_items
+        }
+
+        return render(request ,  'displaylists.html' , context)
+
 
 #Authentications views
 
