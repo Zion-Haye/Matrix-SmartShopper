@@ -297,7 +297,7 @@ def display_login_page(request):
                 lastname = user.last_name
 
             
-                return render(request, "createlist.html" , {"firstname":firstname})
+                return redirect ('/')
             
             else:
                 messages.error(request,"Incorrect Credentials")

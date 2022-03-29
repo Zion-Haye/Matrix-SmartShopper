@@ -3,7 +3,8 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\homestyle.css' %}?{% now "U" %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\editusermodal.css' %}?{% now "U" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\changepasswordmodal.css' %}?{% now "U" %}">
 {% endblock %}
 {% block title %}My Account{% endblock %}
 
@@ -33,17 +34,111 @@
       
 
             <div id="edit-button-container">
-                <button>Edit Details</button>
+                <button id="editdetailsbutton">Edit Details</button>
             </div>
 
-            <div id="edit-button-container">
-                <button>Change Password</button>
+            <div id="change-password-button-container">
+                <button id="changepasswordbutton">Change Password</button>
             </div>
 
             <div id="delete-button-container">
                 <button>Delete Account</button>
             </div>
         </div>
+
+
+        <div class="edit-details-modal-container" id="edit-details-modal-container-id">
+            <div id="edit-details-modal">
+                <h1> Edit Account Details</h1>
+                <div id="edit-details-content-container">
+
+                    <form class="" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" value="{{user.username}}" required>
+                        </div>
+                        <div class="">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" required>
+                        </div>
+                        <div class="">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" required>
+                        </div>
+                        <div class="">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="{{user.email}}" required>
+                        </div>
+                        <div>
+                            <button type="submit">Save Changes</button>
+                        </div>
+                    </form>
+ 
+
+                </div>
+
+                <div id="edit-details-button-container">
+                    <button id="edit-details-back-button">Back</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="change-password-modal-container" id="change-password-modal-container-id">
+            <div id="change-password-modal">
+                <h1> Change Password</h1>
+                <div id="change-password-content-container">
+
+                    <form class="" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" value="{{user.username}}" required>
+                        </div>
+                    
+                        <div>
+                            <button type="submit">Save Changes</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div id="change-password-button-container">
+                    <button id="change-password-back-button">Back</button>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+            const edit_details_open = document.getElementById('editdetailsbutton')
+            const edit_details_modal_container = document.getElementById('edit-details-modal-container-id')
+            const edit_details_close = document.getElementById('edit-details-back-button')
+    
+            edit_details_open.addEventListener('click',() => {
+                edit_details_modal_container.classList.add('show')
+            })
+    
+            edit_details_close.addEventListener('click',() => {
+                edit_details_modal_container.classList.remove('show')
+            })
+        </script>
+
+        <script>
+            const change_password_open = document.getElementById('changepasswordbutton')
+            const change_password_modal_container = document.getElementById('change-password-modal-container-id')
+            const change_password_close = document.getElementById('change-password-back-button')
+    
+            change_password_open.addEventListener('click',() => {
+                change_password_modal_container.classList.add('show')
+            })
+    
+            change_password_close.addEventListener('click',() => {
+                change_password_modal_container.classList.remove('show')
+            })
+        </script>
+    
 
     </div>
 {% endblock %}
