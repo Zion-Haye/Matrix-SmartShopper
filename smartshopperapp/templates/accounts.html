@@ -52,7 +52,7 @@
                 <h1> Edit Account Details</h1>
                 <div id="edit-details-content-container">
 
-                    <form class="" action="" method="POST">
+                    <form class="" action="/EditUserDetails/" method="POST">
                         {% csrf_token %}
                         <div class="">
                             <label for="username">Username</label>
@@ -90,11 +90,11 @@
                 <h1> Change Password</h1>
                 <div id="change-password-content-container">
 
-                    <form class="" action="" method="POST">
+                    <form class="" action="/ChangeUserPassword/" method="POST">
                         {% csrf_token %}
                         <div class="">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" value="{{user.username}}" required>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="*****" required>
                         </div>
                     
                         <div>

@@ -63,9 +63,15 @@ def display_catalogue_page_with_category(request , category):
             'activelist':activelist
         }
 
-    
+        return render (request , 'catalogue.html', context)
 
-    return render (request , 'catalogue.html', context)
+    else:
+        context={
+            'products':products_by_category 
+        }
+
+        return render (request , 'catalogue.html', context)
+
 
 def display_catalogue_page_with_subcategory(request , subcategory):
 
@@ -85,23 +91,19 @@ def display_catalogue_page_with_subcategory(request , subcategory):
             'activelist':activelist
 
         }
-
     
-    return render(request, 'catalogue.html', context)
+        return render(request, 'catalogue.html', context)
+
+    else:
+        context={
+            'products':products_by_sub_category
+        }
+    
+        return render(request, 'catalogue.html', context)
+
 
 def display_search_results_page(request):
     return render (request, 'searchresult.html')
-
-def display_account_page(request):
-
-    if request.user.is_authenticated:
-        user = request.user
-
-        print('In Accounts')
-        firstname = user.first_name
-        lastname = user.last_name
-
-    return render (request, 'accounts.html')
 
 def display_configure_results_page(request):
 
@@ -202,8 +204,6 @@ def edit_list_details(request, list_id):
         user = request.user
         current_user_lists = get_registered_user_lists(user)
 
-
-
         if request.method=="POST":
             print("In edit List Details - POST")
 
@@ -241,6 +241,53 @@ def display_list_items(request , list_id):
         }
 
         return render(request ,  'displaylists.html' , context)
+
+
+#User Account
+def display_account_page(request):
+
+    if request.user.is_authenticated:
+        user = request.user
+
+        print('In Accounts')
+
+    return render (request, 'accounts.html')
+
+def edit_user_details(request):
+    if request.user.is_authenticated:
+        user = request.user
+
+        if request.method=="POST":
+            username = request.POST.get('username')
+            firstname = request.POST.get('firstname')
+            lastname = request.POST.get('lastname')
+            email = request.POST.get('email')
+
+            #Move To Seperate File?
+            user.username = username
+            user.first_name = firstname
+            user.last_name = lastname
+            user.email = email
+
+            user.save()
+
+
+            return redirect ('/Accounts/')
+
+def change_user_password(request):
+    if request.user.is_authenticated:
+        user = request.user
+
+        if request.method=="POST":
+            password =  request.POST.get('password')
+
+            #Move To Seperate File?
+            user.set_password(password)
+            user.save()
+
+            return redirect ('/Login/')
+
+
 
 
 #Authentications views
