@@ -33,7 +33,7 @@
                         {% endif %}
                         <td>{{list.date_created}}</td>
                         <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'">View Items</button></td> 
-                        <td><button onclick="window.location.href=''">Make Active</button></td> 
+                        <td><button onclick="window.location.href='/MakeListActive/{{list.id}}/'">Make Active</button></td> 
                         <td><button onclick="window.location.href='/EditList/{{list.id}}/'">Edit</button></td> 
                         <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
                     </tr>
@@ -51,23 +51,32 @@
                     <div id="edit-list-content-container">
                         <form class="edit-list-modal-form" action="/EditList/{{listtoedit.id}}/" method="POST">
                             {% csrf_token %}
-                            <div>
-                                <label for="listname">Name of List:</label>
-                                <input type="text" name="listname" id="listname" value="{{listtoedit.name}}" required>
-                            </div>
+
+                            <div class="edit-list-modal-form-content-container">
+                                <div class="edit-list-modal-form-name-container"> 
+                                    <label for="listname">Name of List:</label>
+                                    <input type="text" name="listname" id="listname" value="{{listtoedit.name}}" required>
+                                </div>
             
-                            <div>
-                                <label for="description">Description:</label>
-                                <input type="textarea" name="description" id="description" value="{{listtoedit.description}}">
+                                <div class="edit-list-modal-form-description-container">
+                                    <label for="description">Description:</label>
+                                    <input type="textarea" name="description" id="description" value="{{listtoedit.description}}">
+                                </div>
                             </div>
 
-                            <div>
-                                <button type="submit">Save Changes</button>
+                            
+                            <div class="edit-list-modal-form-button-container">
+                      
+                                <div class="edit-list-modal-form-back-button-container">
+                                    <button id="edit-list-back-button">Back</button>
+                                </div>
+
+                                <div class="edit-list-modal-form-submit-button-container">
+                                    <button type="submit">Save Changes</button>
+                                </div>
                             </div>
                         </form>
-                        <div>
-                            <button id="edit-list-back-button">Back</button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -110,9 +119,8 @@
 
                 </div>
 
-                <div id="view-list-button-container">
+                <div id="view-list-back-button-container">
                     <button id="view-list-back-button">Back</button>
-            <!--         <button onclick="window.location.href='/ConfigureResults/'" id="confirm-list-next-button">Next</button> -->
                 </div>
 
             </div>

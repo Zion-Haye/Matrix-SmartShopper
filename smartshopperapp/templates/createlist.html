@@ -62,7 +62,7 @@
                                 {% endif %}
                                 <td>{{list.date_created}}</td>
                                 <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'">View Items</button></td> 
-                                <td><button onclick="window.location.href=''">Make Active</button></td> 
+                                <td><button onclick="window.location.href='/MakeListActive/{{list.id}}/'">Make Active</button></td> 
                                 <td><button onclick="window.location.href='/EditList/{{list.id}}/'">Edit</button></td>
                                 <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
                             </tr>

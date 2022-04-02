@@ -103,7 +103,32 @@ def display_catalogue_page_with_subcategory(request , subcategory):
 
 
 def display_search_results_page(request):
-    return render (request, 'searchresult.html')
+    print("In Search Results")
+    if request.method=="POST":
+        search_text = request.POST.get('search')
+        search_results = get_products_by_search(search_text)
+        print(search_text)
+
+        if request.user.is_authenticated:
+            user = request.user
+            activelist = get_registered_user_active_list(user)
+            listitems = get_list_items(activelist)
+
+            context={
+                'products':search_results, 
+                'listitems':listitems, 
+                'confirmlistitems':listitems,
+                'activelist':activelist
+            }
+    
+        else:
+
+            context={
+                'products':search_results
+            }
+
+
+    return render (request, 'catalogue.html', context)
 
 def display_configure_results_page(request):
 
@@ -181,7 +206,8 @@ def display_my_lists(request):
 def delete_list(request , list_id):
 
     if request.user.is_authenticated:
-        delete_list_by_id(list_id)
+        user = request.user
+        delete_list_by_id(list_id,user)
 
         return redirect('/MyLists/')
 
@@ -242,6 +268,14 @@ def display_list_items(request , list_id):
 
         return render(request ,  'displaylists.html' , context)
 
+def make_list_active(request , list_id):
+
+    if request.user.is_authenticated:
+        user = request.user
+
+        set_list_to_active(list_id , user)
+
+        return redirect ('/MyLists/')
 
 #User Account
 def display_account_page(request):

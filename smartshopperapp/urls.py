@@ -21,7 +21,8 @@ urlpatterns = [
     path('DeleteProductFromList/<product_id>/', views.delete_product_from_list , name="delete_product"),
     path('EditList/<list_id>/', views.edit_list_details , name="edit_details_list"),
     path('ViewListItems/<list_id>/', views.display_list_items , name="display_list_items"),
-    path('EditUserDetails/', views.edit_user_details , name='edit_user_details'),
-    path('ChangeUserPassword/', views.change_user_password, name='change_user_password')
+    path('EditUserDetails/', views.edit_user_details , name="edit_user_details"),
+    path('ChangeUserPassword/', views.change_user_password, name="change_user_password"),
+    path('MakeListActive/<list_id>/', views.make_list_active, name="make_list_active")
     
 ]

@@ -1,10 +1,5 @@
 Modals:
 -create list
-
-
--edit account details (check functionality)
--change password (check funcionality)
-
 -modal to create list if one hasnt been when try to add item to create (return to createlist page)
 
 
@@ -19,8 +14,10 @@ if you try to add to a lis with no active list , it will take you to the create 
 
 
 -Update / remove cart item from display list item in my lists
+
 Figure out:
 My List page what happens when view items is clicked on an empty list.
 
 
--ensure all forms hve the token
+Issues:
+-Delete function inconsistent

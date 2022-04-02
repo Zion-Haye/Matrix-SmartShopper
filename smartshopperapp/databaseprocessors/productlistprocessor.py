@@ -34,6 +34,8 @@ def get_product_by_id(product_id):
     else:
         return None
 
+def get_products_by_search(search_text):
+    return None
 
 def populate_product_pool_database():
     products = Product.objects.all()

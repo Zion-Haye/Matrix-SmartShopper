@@ -2,7 +2,7 @@
 {% block head %}
 
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\homestyle.css' %}?{% now "U" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\accountsstyle.css' %}?{% now "U" %}">
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\editusermodal.css' %}?{% now "U" %}">
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\changepasswordmodal.css' %}?{% now "U" %}">
 {% endblock %}
@@ -14,35 +14,38 @@
         <div id="account-content-container">
 
             {% if user.is_authenticated %}
-            <div class="">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" value="{{user.username}}" disabled >
-            </div>
-            <div class="">
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
-            </div>
-            <div class="">
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
-            </div>
-            <div class="">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="{{user.email}}" disabled>
+            <div id="account-details-container">
+                <div class="">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" value="{{user.username}}" disabled >
+                </div>
+                <div class="">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
+                </div>
+                <div class="">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
+                </div>
+                <div class="">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{user.email}}" disabled>
+                </div>
             </div>
             {% endif %}
       
+            <div id="account-button-containers">
+                <div id="edit-button-container">
+                    <button id="editdetailsbutton">Edit Details</button>
+                </div>
 
-            <div id="edit-button-container">
-                <button id="editdetailsbutton">Edit Details</button>
-            </div>
+                <div id="change-password-button-container">
+                    <button id="changepasswordbutton">Change Password</button>
+                </div>
 
-            <div id="change-password-button-container">
-                <button id="changepasswordbutton">Change Password</button>
-            </div>
-
-            <div id="delete-button-container">
-                <button>Delete Account</button>
+                <div id="delete-button-container">
+                    <button>Delete Account</button>
+                </div>
             </div>
         </div>
 
@@ -52,37 +55,42 @@
                 <h1> Edit Account Details</h1>
                 <div id="edit-details-content-container">
 
-                    <form class="" action="/EditUserDetails/" method="POST">
+                    <form id="edit-details-form" action="/EditUserDetails/" method="POST">
                         {% csrf_token %}
-                        <div class="">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" value="{{user.username}}" required>
+                        <div id="edit-details-form-user-details-container">
+                            <div class="">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" value="{{user.username}}" required>
+                            </div>
+                            <div class="">
+                                <label for="firstname">First Name</label>
+                                <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" required>
+                            </div>
+                            <div class="">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" required>
+                            </div>
+                            <div class="">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" value="{{user.email}}" required>
+                            </div>
                         </div>
-                        <div class="">
-                            <label for="firstname">First Name</label>
-                            <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" required>
-                        </div>
-                        <div class="">
-                            <label for="lastname">Last Name</label>
-                            <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" required>
-                        </div>
-                        <div class="">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" value="{{user.email}}" required>
-                        </div>
-                        <div>
-                            <button type="submit">Save Changes</button>
+                        <div id="edit-details-form-button-container">
+                           
+                            <div id="edit-details-back-button-container">
+                                <button id="edit-details-back-button">Back</button>
+                            </div>
+                            <div id="edit-details-submit-button-container">
+                                <button type="submit">Save Changes</button>
+                            </div>
                         </div>
                     </form>
  
 
                 </div>
 
-                <div id="edit-details-button-container">
-                    <button id="edit-details-back-button">Back</button>
-                </div>
-
             </div>
+
         </div>
 
         <div class="change-password-modal-container" id="change-password-modal-container-id">
@@ -90,23 +98,28 @@
                 <h1> Change Password</h1>
                 <div id="change-password-content-container">
 
-                    <form class="" action="/ChangeUserPassword/" method="POST">
+                    <form id="change-password-form" action="/ChangeUserPassword/" method="POST">
                         {% csrf_token %}
-                        <div class="">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="*****" required>
+                        <div id="change-password-detail-container">
+                            <div>
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="*****" required>
+                            </div>
                         </div>
-                    
-                        <div>
-                            <button type="submit">Save Changes</button>
+                        
+                        <div id="change-password-button-container">
+                            <div id="change-password-back-button-container">
+                                <button id="change-password-back-button">Back</button>
+                            </div>
+                            <div id="change-password-submit-button-container">
+                                <button type="submit">Save Changes</button>
+                            </div>
                         </div>
                     </form>
 
                 </div>
 
-                <div id="change-password-button-container">
-                    <button id="change-password-back-button">Back</button>
-                </div>
+   
 
             </div>
         </div>

@@ -1,0 +1,49 @@
+#content{
+    width:100vw;
+    height:auto;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;   
+
+    border:0.5px solid black;
+    
+}
+
+#account-content-container{
+    width:80%;
+    height:auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    
+    border:0.5px solid black;
+}
+
+#account-details-container{
+    width:60%;
+    height:auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    
+    padding:5vh 0vh 5vh 0vh;
+    
+    border:0.5px solid black;
+}
+
+#account-button-containers{
+    width:60%;
+    height:auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    
+    border:0.5px solid black;
+}
