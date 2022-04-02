@@ -35,7 +35,13 @@ def get_product_by_id(product_id):
         return None
 
 def get_products_by_search(search_text):
-    return None
+
+    search_results = Product.objects.all().filter(full_item_name__icontains=search_text)
+
+    if search_results.exists():
+        return search_results
+    else:
+        return None
 
 def populate_product_pool_database():
     products = Product.objects.all()

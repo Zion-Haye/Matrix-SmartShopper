@@ -21,3 +21,10 @@ My List page what happens when view items is clicked on an empty list.
 
 Issues:
 -Delete function inconsistent
+
+Look Into:
+Page pagination
+
+To DO:
+No item found message for search results
+List empty message for empty page on my list page

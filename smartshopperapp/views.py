@@ -17,6 +17,10 @@ def display_home_page(request):
     print("In Home:")
     print("Is Authenticated: ", isauthenticated)
 
+    #user = User.objects.get(username="johndoe")
+    #user.set_password("password")
+    #user.save()
+
 
     populate_product_pool_database()
 
