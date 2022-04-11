@@ -50,6 +50,42 @@ class TestUrls(SimpleTestCase):
         url =  reverse('configure_results')
         self.assertEquals(resolve(url).func , display_configure_results_page)
 
+    def test_display_catalogue_subcategory_url_resolves(self):
+        url =  reverse('display_catalogue_subcategory', args=['Fruits'])
+        self.assertEquals(resolve(url).func , display_catalogue_page_with_subcategory)
 
-    
+    def test_add_product_to_list_url_resolves(self):
+        url =  reverse('add_product_to_list')
+        self.assertEquals(resolve(url).func , add_product_to_list)
 
+    def test_display_my_lists_url_resolves(self):
+        url =  reverse('display_my_lists')
+        self.assertEquals(resolve(url).func , display_my_lists)
+
+    def test_delete_list_url_resolves(self):
+        url =  reverse('delete_list', args=['1'])
+        self.assertEquals(resolve(url).func , delete_list)
+
+    def test_delete_product_from_list_url_resolves(self):
+        url =  reverse('delete_product', args=['1'])
+        self.assertEquals(resolve(url).func , delete_product_from_list)
+
+    def test_edit_list_details_url_resolves(self):
+        url =  reverse('edit_list_details', args=['1'])
+        self.assertEquals(resolve(url).func , edit_list_details)
+
+    def test_display_list_items_url_resolves(self):
+        url =  reverse('display_list_items', args=['1'])
+        self.assertEquals(resolve(url).func , display_list_items)
+
+    def test_edit_user_details_url_resolves(self):
+        url =  reverse('edit_user_details')
+        self.assertEquals(resolve(url).func , edit_user_details)
+
+    def test_change_user_password_url_resolves(self):
+        url =  reverse('change_user_password')
+        self.assertEquals(resolve(url).func , change_user_password )
+
+    def test_make_list_active_url_resolves(self):
+        url =  reverse('make_list_active', args=['1'])
+        self.assertEquals(resolve(url).func , make_list_active)
