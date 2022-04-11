@@ -36,3 +36,5 @@ class ListItem (models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE, null=True)
     item_quantity = models.IntegerField(null=True)
 
+
+#Chnage product quantity to size?/

@@ -1,0 +1,11 @@
+       self.configuration = Configuration.objects.create(
+            priority = "Cheapest",
+            location = "Arima"
+        )
+
+  #Configuration
+    def test_configuration_priority_is_assigned_on_creation(self):
+        self.assertEquals(self.configuration.priority, "Cheapest")
+                                   
+    def test_configuration_location_is_assigned_on_creation(self):
+        self.assertEquals(self.configuration.location, "Arima")
