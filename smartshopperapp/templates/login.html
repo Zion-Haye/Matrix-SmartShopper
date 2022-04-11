@@ -9,20 +9,34 @@
 
 {% block content %}
     <div id="content">
-        <form action="/Login/" method="POST">
+
+        <div id="login-form-container">
+
+            <h1> Login </h1>
+
+        <form id="login-form" action="/Login/" method="POST">
             {% csrf_token %}
-            <div class="form-item">
+            <div id="login-form-username-container" class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username" required >
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required >
             </div>
-            <div class="form-item">
+
+            <div id="login-form-password-container" class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="****" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="****" required>
             </div>
 
             <p>Don't have an account? <a href="/SignUp/">SignUp!</a></p>
 
             <button type="submit">Login!</button>
         </form>
+    </div>
+
+
+    <div id="login-image-container">
+        {% load static %}
+        <img id="login-logo"src="{% static 'images/logo.PNG' %}" alt="">
+    </div>
+
     </div>
 {% endblock %}

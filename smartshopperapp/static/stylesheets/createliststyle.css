@@ -13,7 +13,21 @@
     border:0.5px solid black;
 }
 
-.content-child{
+/* .content-child{
+    width:45%;
+    min-height:70vh;
+
+    margin:5vh 0 5vh 0;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+} */
+
+#section-create-list{
     width:45%;
     min-height:70vh;
 
@@ -27,13 +41,82 @@
     border:0.5px solid black;
 }
 
-#section-create-list{
+#create-list-form{
+    height:auto;
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+#create-list-listname-container{
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin:5vh 0 5vh 0; 
+
+    border:0.5px solid black;
+}
+
+#create-list-description-container{
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+
+
+#create-list-button-container{
+    width:80%;
+    margin:5vh 0 5vh 0; 
+
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    border:0.5px solid black;
+}   
+
+#section-display-options{
+    width:45%;
+    min-height:70vh;
+
+    margin:5vh 0 5vh 0;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+
+#section-display-lists{
+    height: 100%;
+    width:100%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#list-table{
     
 }
 
-#section-display-options{
-
+#list-table th, td{
+    padding:10px;
+    border-bottom: 1px solid #ddd;
 }
+
 
 form{
     display:flex;
@@ -46,4 +129,41 @@ form{
 a{
     text-decoration:none;
     color:black
+}
+
+
+@media(max-width:800px){
+    #content{
+        width:100vw;
+        height:auto;
+    
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        border:0.5px solid black;
+    }
+
+    #section-display-options{
+        width:90%;
+        min-height:70vh;
+    }
+
+    #section-create-list{
+        width:80%;
+    
+    }
+
+}
+
+@media(max-width:450px){
+
+    #create-list-button-container{
+         
+        flex-direction: column;
+        justify-content: center;
+  
+    } 
+
 }

@@ -3,11 +3,42 @@
     height:auto;
 
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;   
+
+    padding-top:1vh;
     
 }
 
+#list-table-container{
+    width:90%;
+    height: auto;
+    overflow-x: auto;
+    margin-top:1vh;
+    border: 0.5px solid black;
+}
+
 #list-table{
-    width:60%;
+    width:100%;
+    height: auto;
+   
+}
+
+#list-table th, td{
+    padding:10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: grey;
+    color: white;
+  }
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: lightgray;
 }

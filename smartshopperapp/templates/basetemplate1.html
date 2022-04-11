@@ -25,7 +25,10 @@
 
     <header>
         <div id="section-1" class="flexbox-child">
-           
+            <div id="header-image-container">
+                {% load static %}
+                <img id="header-logo"src="{% static 'images/logo2.PNG' %}" alt="">
+            </div>
         </div>
         <div id="section-2" class="flexbox-child">
 
@@ -63,9 +66,11 @@
        </div>
 
        <div id="nav-section-2">
-            <form action="/SearchResults/" method="POST">
-                {% csrf_token %}
-                <input type="text" name="search" id="search" placeholder="Search">
+            <form id="nav-form" action="/SearchResults/" method="POST">
+                {% csrf_token %}       
+                <div id="nav-search-container" class="form-group">
+                    <input type="text" name="search" class="form-control" id="search" placeholder="Search">
+                </div>
             </form>
         </div>
 

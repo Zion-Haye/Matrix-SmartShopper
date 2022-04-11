@@ -9,31 +9,46 @@
 
 {% block content %}
     <div id="content">
-        <form action="/SignUp/" method="POST">
+
+        <div id="signup-container">
+
+            <h1> Sign Up</h1>
+        <form id="signup-form" action="/SignUp/" method="POST">
             {% csrf_token %}
-            <div class="form-item">
+            <div class="row form-group">
+                <div class="col">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
+                </div>
+                <div class="col">
+                    <label for="lastname">Last Name</label>
+                    <input type="text"class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+                </div>
+              </div>
+            
+            <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username" required >
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required >
             </div>
-            <div class="form-item">
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
-            </div>
-            <div class="form-item">
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
-            </div>
-            <div class="form-item">
+            <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" validate>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" validate>
             </div>
-            <div class="form-item">
+            <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="****" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="****" required>
             </div>
+            
             <p>Already have an account? <a href="/Login/">Login!</a></p>
 
             <button type="submit">SignUp!</button>
         </form>
+        </div>
+
+        <div id="signup-logo-container">
+            {% load static %}
+            <img id="signup-logo"src="{% static 'images/logo.PNG' %}" alt="">    
+        </div>
+
     </div>
 {% endblock %}

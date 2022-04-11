@@ -18,18 +18,35 @@
 
             
 
-            <form action="/CreateList/" method="POST">
+            <form id="create-list-form" action="/CreateList/" method="POST">
                 {% csrf_token %}
+                <div class="form-group" id="create-list-listname-container">
+                    <label for="listname">Name of List:</label>
+                    <input type="text" class="form-control" name="listname" id="listname" placeholder="Name of List" required>
 
-                <label for="listname">Name of List:</label>
-                <input type="text" name="listname" id="listname" placeholder="Name of List" required>
+                </div>
 
-                <label for="description">Description:</label>
-                <input type="textarea" name="description" id="description" placeholder="Description (optional)">
+                <div class="form-group" id="create-list-description-container">
+                    <label for="description">Description:</label>
+                    <input type="textarea" class="form-control" name="description" id="description" placeholder="Description (optional)">
+                </div>
+                  
+<!--                 <div id="create-list-listname-container">
+                    <label for="listname">Name of List:</label>
+                    <input type="text" name="listname" id="listname" placeholder="Name of List" required>
+                </div>
 
-                <button type="submit">Save and Continue</button>
+                <div id="create-list-description-container">
+                    <label for="description">Description:</label>
+                    <input type="textarea" name="description" id="description" placeholder="Description (optional)">
+                </div> -->
+
+                <div id="create-list-button-container">
+                    <button type="submit">Save and Continue</button>
             
-                <button onclick="window.location.href='/'"> Go Back </button>
+                    <button onclick="window.location.href='/'"> Go Back </button>
+                </div>
+    
             </form>
         </div>
 

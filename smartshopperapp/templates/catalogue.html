@@ -171,9 +171,9 @@
                         <form id="catalogue-item-form" action="/AddProductToList/" method="POST">
                             {% csrf_token %}
 
-                            <div>
+                            <div class="catalogue-items-form-quantity-container">
                                 <label for="quantity">Quantity:</label>
-                                <input type="number" id="product_quantity" name="product_quantity" min="0" value="1">
+                                <input type="number" id="product_quantity" name="product_quantity" min="0"  max="20" value="1">
                             </div>
 
                             <div>
@@ -182,7 +182,9 @@
 
                             <div class="catalogue-items-in-form-button-container">
                                 {% if activelist != None %}
-                                    <button type="submit">Add To Cart</button>
+                                    <!-- <button type="submit">Add To Cart</button> -->
+
+                                    <button type="submit" class="btn btn-outline-warning">Add To Cart</button>
                                 {% endif %}
                                     
                             
@@ -192,7 +194,7 @@
                         <!--Style-->
                         <div class="catalogue-items-out-form-button-container">
                             {% if activelist == None %}
-                                <button onclick="window.location.href='/CreateList/'">Add To Cart</button>
+                                <button class="btn btn-outline-warning" onclick="window.location.href='/CreateList/'">Add To Cart</button>
                             {% endif %}
                         </div>
                         
@@ -217,17 +219,17 @@
                             </div>
 
                             <div class="cart-items-content-container">
-                                <div class="cart-items-description">
+                                <div class="cart-items-description-container">
                                     <p>{{listitem.product.full_item_name}}</p>
                                 </div>
                                 <form class="cart-items-form">
                                     {% csrf_token %}
-                                    <div>
+                                    <div class="cart-items-form-quantity-container">
                                         <label for="quantity">Quantity:</label>
                                         <input type="number" id="product_quantity" name="product_quantity" min="0" value="{{listitem.item_quantity}}">
                                     </div>
 
-                                    <div class="form-button-container">
+                                    <div class="cart-items-form-button-container">
                                         <button>Update</button>
                                         <button  onclick="window.location.href='/DeleteProductFromList/{{listitem.product.id}}/'">Remove</button>
                                     </div>
@@ -263,12 +265,16 @@
                                 </div>
 
                                 <div class="confirm-list-item-content-container">
-                                    <div>
+
+                                    <div class="confirm-list-item-product-name-container">
                                         <p>{{confirmlistitem.product.full_item_name}}</p>
                                     </div>
-                                    <div>
-
+                                    
+                                    <div class="confirm-list-item-quantity-container">
+                                        <label for="quantity">Quantity:</label>
+                                        <input type="number" id="product_quantity" name="product_quantity" min="0" value="{{confirmlistitem.item_quantity}}">
                                     </div>
+                                  
                                 </div>
                                 <div class = "confirm-list-item-button-container">
                                     <button>Update</button>
