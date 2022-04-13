@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2=q5vuc*gtvi2k=9j#kqc7)=3pz^98i^p_%rw9u@wj+jl1euud'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['matrix-smartshopper.herokuapp.com' , '127.0.0.1']
-
+#ALLOWED_HOSTS = ['matrix-smartshopper.herokuapp.com' , '127.0.0.1']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -43,7 +43,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -51,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#  'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ROOT_URLCONF = 'smartshopper.urls'
 
@@ -121,7 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 #
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 #
 
 STATIC_URL = '/static/'

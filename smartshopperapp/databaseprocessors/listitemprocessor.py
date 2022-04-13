@@ -35,5 +35,8 @@ def delete_item_from_list_item(list , product):
 
         #look into delete , do i need to save?
 
-def get_num_items_in_list_item():
-    pass
+def get_num_items_in_list_item(list):
+    
+    listitemcount = ListItem.objects.all().filter(list=list).count()
+    return listitemcount
+

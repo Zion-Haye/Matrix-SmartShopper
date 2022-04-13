@@ -83,10 +83,12 @@
                 </div>
 
             {% endif %}
-
+            
+            {% if activelist != None %}
             <div class="nav-section-3-child" id="nav-section-3-child-2">
-                <button><a href="/">Home</a></button>
+                <p>{{activelist.name}}({{activelistcount}})</p>
             </div>
+            {% endif %}
         </div>
     </nav>
     <body>

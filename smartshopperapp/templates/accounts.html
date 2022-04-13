@@ -13,38 +13,45 @@
 
         <div id="account-content-container">
 
+
+            <h1> My Account </h1>
+
             {% if user.is_authenticated %}
             <div id="account-details-container">
-                <div class="">
+                <div class="row form-group view-details">
+                    <div class="col">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
+                    </div>
+                    <div class="col">
+                        <label for="lastname">Last Name</label>
+                        <input type="text"class="form-control" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
+                    </div>
+                  </div>
+
+                  <div class="form-group view-details">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" value="{{user.username}}" disabled >
+                    <input type="text" class="form-control" id="username" name="username" value="{{user.username}}" disabled >
                 </div>
-                <div class="">
-                    <label for="firstname">First Name</label>
-                    <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
-                </div>
-                <div class="">
-                    <label for="lastname">Last Name</label>
-                    <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
-                </div>
-                <div class="">
+                <div class="form-group view-details">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="{{user.email}}" disabled>
+                    <input type="email" class="form-control" id="email" name="email" value="{{user.email}}" disabled>
                 </div>
+
             </div>
             {% endif %}
       
             <div id="account-button-containers">
-                <div id="edit-button-container">
-                    <button id="editdetailsbutton">Edit Details</button>
+                <div id="edit-button-container " class="button-containers">
+                    <button id="editdetailsbutton" type="button" class="btn btn-primary">Edit Details</button>
                 </div>
 
-                <div id="change-password-button-container">
-                    <button id="changepasswordbutton">Change Password</button>
+                <div id="change-password-button-container" class="button-containers">
+                    <button id="changepasswordbutton" type="button" class="btn btn-primary">Change Password</button>
                 </div>
 
-                <div id="delete-button-container">
-                    <button>Delete Account</button>
+                <div id="delete-button-container" class="button-containers">
+                    <button type="button" class="btn btn-primary">Delete Account</button>
                 </div>
             </div>
         </div>
@@ -58,33 +65,40 @@
                     <form id="edit-details-form" action="/EditUserDetails/" method="POST">
                         {% csrf_token %}
                         <div id="edit-details-form-user-details-container">
-                            <div class="">
+                            <div class="row form-group view-details">
+                                <div class="col">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
+                                </div>
+                                <div class="col">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text"class="form-control" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
+                                </div>
+                              </div>
+            
+                              <div class="form-group view-details">
                                 <label for="username">Username</label>
-                                <input type="text" id="username" name="username" value="{{user.username}}" required>
+                                <input type="text" class="form-control" id="username" name="username" value="{{user.username}}" disabled >
                             </div>
-                            <div class="">
-                                <label for="firstname">First Name</label>
-                                <input type="text" id="firstname" name="firstname" value="{{user.first_name}}" required>
-                            </div>
-                            <div class="">
-                                <label for="lastname">Last Name</label>
-                                <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" required>
-                            </div>
-                            <div class="">
+                            <div class="form-group view-details">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" value="{{user.email}}" required>
+                                <input type="email" class="form-control" id="email" name="email" value="{{user.email}}" disabled>
                             </div>
                         </div>
-                        <div id="edit-details-form-button-container">
-                           
-                            <div id="edit-details-back-button-container">
-                                <button id="edit-details-back-button">Back</button>
-                            </div>
+                        <div id="edit-details-in-form-button-container">
                             <div id="edit-details-submit-button-container">
-                                <button type="submit">Save Changes</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                         </div>
                     </form>
+
+                    <div id="edit-details-in-form-button-container">
+                        <div id="edit-details-back-button-container">
+                            <button id="edit-details-back-button" class="btn btn-primary">Back</button>
+                        </div>
+                    </div>
+
+                    
  
 
                 </div>

@@ -37,12 +37,14 @@ def display_catalogue_page(request):
         user = request.user
         activelist = get_registered_user_active_list(user)
         listitems = get_list_items(activelist)
+        activelistcount =get_num_items_in_list_item(activelist)
 
         context={
             'products':products_by_category, 
             'listitems':listitems, 
             'confirmlistitems':listitems,
-            'activelist':activelist
+            'activelist':activelist,
+            'activelistcount': activelistcount
         }
 
         return render (request , 'catalogue.html' , context )
@@ -59,12 +61,15 @@ def display_catalogue_page_with_category(request , category):
         user = request.user
         activelist = get_registered_user_active_list(user)
         listitems = get_list_items(activelist)
+        activelistcount =get_num_items_in_list_item(activelist)
 
         context={
             'products':products_by_category, 
             'listitems':listitems, 
             'confirmlistitems':listitems,
-            'activelist':activelist
+            'activelist':activelist,
+            'activelistcount': activelistcount,
+            'category':category
         }
 
         return render (request , 'catalogue.html', context)
@@ -87,12 +92,15 @@ def display_catalogue_page_with_subcategory(request , subcategory):
         user = request.user
         activelist = get_registered_user_active_list(user)
         listitems = get_list_items(activelist)
+        activelistcount =get_num_items_in_list_item(activelist)
 
         context={
             'products':products_by_sub_category, 
             'listitems':listitems, 
             'confirmlistitems':listitems,
-            'activelist':activelist
+            'activelist':activelist,
+            'activelistcount': activelistcount,
+            'category': subcategory
 
         }
     
