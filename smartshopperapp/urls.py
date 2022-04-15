@@ -23,6 +23,8 @@ urlpatterns = [
     path('ViewListItems/<list_id>/', views.display_list_items , name="display_list_items"),
     path('EditUserDetails/', views.edit_user_details , name="edit_user_details"),
     path('ChangeUserPassword/', views.change_user_password, name="change_user_password"),
-    path('MakeListActive/<list_id>/', views.make_list_active, name="make_list_active")
+    path('MakeListActive/<list_id>/', views.make_list_active, name="make_list_active"),
+
+    path('GroceryResults/',views.display_grocery_results, name="display_grocery_results")
     
 ]

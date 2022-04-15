@@ -13,9 +13,9 @@
         <h1>Configure Search Results</h1>
 
         <form id="configure-results-form" action="/ConfigureResults/" method="POST">
-
+            {% csrf_token %}
             <div id="radio-group-container">
-                {% csrf_token %}
+                
                 <div class="radio-item">
                     <input type="radio" id="cheapest-option" name="priority" value="Cheapest" required>
                     <label for="cheapest-option">Cheapest</label>
@@ -35,11 +35,13 @@
             <div id="location-selection-box">
                 <label for="locations">Select A Location:</label>
 
-                <select name="location" id="locations">
-                    <option value="Arima">Arima</option>
-                    <option value="Trincity">Trincity</option>
-                    <option value="Port of Spain">Port of Spain</option>
-                    <option value="Penal">Penal</option>
+                <select name="location" id="locations" required>
+                    <option value="">Select Location</option>
+                    {% if cities != None %}
+                        {% for city in cities %}
+                            <option value={{city.city_address}}>{{city.city_name}}</option>
+                        {% endfor %}
+                    {% endif %}
                 </select>
             </div>
 
@@ -51,4 +53,7 @@
       
 
     </div>
+
+    
+   
 {% endblock %}

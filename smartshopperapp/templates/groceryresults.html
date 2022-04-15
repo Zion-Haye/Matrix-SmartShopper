@@ -1,0 +1,86 @@
+{% extends "basetemplate1.html" %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\groceryresultsstyle.css' %}?{% now "U" %}">
+
+{% endblock %}
+{% block title %}Grocery Results{% endblock %}
+
+{% block content %}
+    <div id="content">
+
+
+        <div id="page-content">
+
+
+            <div id="grocery-results">
+                {% if groceryresults != None %}
+
+                    {% for groceryresult in groceryresults %}
+
+                    <div class="accordion">
+                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}}</button>
+                        <div class="accordion-content">
+
+                        <!-- <p>Grocery Name: {{groceryresult.grocery_name}}</p>
+                        <p>Branch Location: {{groceryresult.branch_location}}</p> -->
+
+                            <p>Number of Items Found: {{groceryresult.num_found}}</p>
+                            <p>Number of Items Not Found: {{groceryresult.num_not_found}}</p>
+
+                            <table>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total Cost</th>
+                                </tr>
+               
+                            {% for grocery_item in groceryresult.grocery_items %}
+
+                                <tr>
+                                    <td>{{grocery_item.item_name}}</td>
+                                    <td>{{grocery_item.quantity}}</td>
+                                    <td>{{grocery_item.unit_price}}</td>
+                                    <td>{{grocery_item.total_cost}}</td>
+                                </tr>
+           
+
+                            {% endfor %}
+                        </table>
+           
+
+                        <p>Total Cost: {{groceryresult.total_cost}}</p>
+                        <p>Estimated Distance: {{groceryresult.distance}}</p>
+                        <p>Estimated Time: {{groceryresult.duration}}</p>
+
+                    </div>
+                </div>
+
+                    {% endfor %}
+
+            
+                        
+            {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <script>
+        document.querySelectorAll('.accordion-bttn').forEach(button =>{
+            button.addEventListener('click',()=>{
+                const accoridionContent = button.nextElementSibling;
+
+                button.classList.toggle('accordion-bttn--active');
+                //button.classList.toggle('accordion-button--active');
+
+                if (button.classList.contains('accordion-bttn--active')){
+                    accoridionContent.style.maxHeight = accoridionContent.scrollHeight + 'px';
+                }else{
+                    accoridionContent.style.maxHeight = 0;
+                }
+            })
+        })
+    </script>
+{% endblock %}

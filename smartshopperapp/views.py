@@ -8,6 +8,11 @@ from .models import *
 from .databaseprocessors.productlistprocessor import *
 from .databaseprocessors.listprocessor import *
 from .databaseprocessors.listitemprocessor import *
+from .databaseprocessors.grocerydetailprocessor import *
+from .databaseprocessors.groceryinventoryprocessor import *
+from .databaseprocessors.groceryresultsprocessor import *
+from .databaseprocessors.citydetailsprocessor import *
+from .distancecalculator.distancecalculator import *
 
 # Create your views here.
 
@@ -17,9 +22,22 @@ def display_home_page(request):
     print("In Home:")
     print("Is Authenticated: ", isauthenticated)
 
+    #product = Product.objects.all()
+    #product.delete()
+    
+    #populate_grocery_detail_database()
+    #populate_grocery_inventory_database()
+
     #user = User.objects.get(username="johndoe")
     #user.set_password("password")
     #user.save()
+
+    populate_city_detail_database()
+
+    #cities = CityDetails.objects.all()
+    #ities.delete()
+
+    #test_dc()
 
 
     populate_product_pool_database()
@@ -146,16 +164,56 @@ def display_configure_results_page(request):
 
     if request.method=="POST":
         priority = request.POST.get('priority')
-        location= None
+        #location= None
 
-        if ((priority == "Closest") or (priority== "Cheapest and Closest")):
-            location = request.POST.get('location')
+        #if ((priority == "Closest") or (priority== "Cheapest and Closest")):
+        location = request.POST.get('location')
+
+        if request.user.is_authenticated:
+            user = request.user
+            activelist = get_registered_user_active_list(user)
+
+            configuration = Configuration(priority=priority , location =location)
+            configuration.save()
+
+            activelist.configuration = configuration
+            activelist.save()
         
         print("In Configure results POST")
         print(priority)
         print(location)
 
-    return render (request, 'configureresults.html')
+
+
+
+
+        return redirect ('/GroceryResults/')
+    
+    cities = CityDetails.objects.all()
+
+    context = {
+        'cities': cities
+    }
+
+    return render (request, 'configureresults.html' , context)
+
+
+def display_grocery_results(request):
+    if request.user.is_authenticated:
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+        listitems = get_list_items(activelist)
+
+        groceryresults = get_grocery_results(activelist ,listitems)
+
+        context={
+                'groceryresults':groceryresults
+            }
+
+        return render (request, 'groceryresults.html' , context)
+
+
+
 
 # Product and List
 def display_create_list_page(request):
