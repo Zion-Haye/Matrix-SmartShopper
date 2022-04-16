@@ -51,7 +51,7 @@
                 </div>
 
                 <div id="delete-button-container" class="button-containers">
-                    <button type="button" class="btn btn-primary">Delete Account</button>
+                    <button type="button" class="btn btn-danger">Delete Account</button>
                 </div>
             </div>
         </div>
@@ -65,38 +65,38 @@
                     <form id="edit-details-form" action="/EditUserDetails/" method="POST">
                         {% csrf_token %}
                         <div id="edit-details-form-user-details-container">
-                            <div class="row form-group view-details">
+                            <div class="row form-group edit-details">
                                 <div class="col">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" id="firstname" name="firstname" value="{{user.first_name}}" disabled>
+                                    <input type="text" class="form-control" id="firstname" name="firstname" value="{{user.first_name}}" >
                                 </div>
                                 <div class="col">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text"class="form-control" id="lastname" name="lastname" value="{{user.last_name}}" disabled>
+                                    <input type="text"class="form-control" id="lastname" name="lastname" value="{{user.last_name}}">
                                 </div>
                               </div>
             
-                              <div class="form-group view-details">
+                              <div class="form-group edit-details">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" value="{{user.username}}" disabled >
+                                <input type="text" class="form-control" id="username" name="username" value="{{user.username}}">
                             </div>
-                            <div class="form-group view-details">
+                            <div class="form-group edit-details">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="{{user.email}}" disabled>
+                                <input type="email" class="form-control" id="email" name="email" value="{{user.email}}" >
                             </div>
                         </div>
-                        <div id="edit-details-in-form-button-container">
-                            <div id="edit-details-submit-button-container">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
+                        
+                        <div id="edit-details-submit-button-container">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </div>
+                        
                     </form>
 
-                    <div id="edit-details-in-form-button-container">
-                        <div id="edit-details-back-button-container">
+
+                    <div id="edit-details-back-button-container">
                             <button id="edit-details-back-button" class="btn btn-primary">Back</button>
-                        </div>
-                    </div>
+                     </div>
+                   
 
                     
  
@@ -114,29 +114,29 @@
 
                     <form id="change-password-form" action="/ChangeUserPassword/" method="POST">
                         {% csrf_token %}
-                        <div id="change-password-detail-container">
-                            <div>
+        
+
+                            <div class="form-group edit-password">
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" value="*****" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="****" required>
                             </div>
-                        </div>
-                        
-                        <div id="change-password-button-container">
-                            <div id="change-password-back-button-container">
-                                <button type="" id="change-password-back-button">Back</button>
-                            </div>
+                     
+                                                       
                             <div id="change-password-submit-button-container">
-                                <button type="submit">Save Changes</button>
-                            </div>
-                        </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>             
                     </form>
+
+                    <div id="change-password-back-button-container">
+                        <button type="button" class="btn btn-primary" id="change-password-back-button">Back</button>
+                    </div>
 
                 </div>
 
    
-
             </div>
         </div>
+        
 
         <script>
             const edit_details_open = document.getElementById('editdetailsbutton')

@@ -39,7 +39,7 @@
     background-color: #fff;
 
     max-width:100%;
-    min-width:80%;
+    min-width:50%;
     height:auto;
 
     padding: 5vh 0 5vh 0;
@@ -49,7 +49,7 @@
 
 #edit-details-content-container{
   width:80%;
-  height:30vh; 
+  height:auto; 
 
   
 
@@ -58,7 +58,7 @@
   justify-content:center;
   align-items:center;
 
-  border:0.5px solid black;
+  
 }
 
 #edit-details-form{
@@ -70,7 +70,7 @@
     justify-content:center;
     align-items:center;
 
-    border:0.5px solid black;
+    
 }
 
 #edit-details-form-user-details-container{
@@ -82,7 +82,7 @@
     justify-content:center;
     align-items:center;
 
-    border:0.5px solid black;
+    
 }
 
 #edit-details-form-button-container{
@@ -93,11 +93,11 @@
     justify-content:center;
     align-items:center;
 
-    border:0.5px solid black;
+   
 }
 
 #edit-details-back-button-container{
-    width:50%;
+    width:100%;
     height: auto;
 
     display:flex;
@@ -106,10 +106,19 @@
 }
 
 #edit-details-submit-button-container{
-    width:50%;
+    width:100%;
     height: auto;
 
     display:flex;
     justify-content:center;
     align-items:center;
+    padding: 2vh 0 2vh 0;
+
+   
+}
+
+.edit-details{
+    width:100%;
+    padding-bottom: 2vh;
+    
 }

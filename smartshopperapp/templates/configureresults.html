@@ -14,28 +14,26 @@
 
         <form id="configure-results-form" action="/ConfigureResults/" method="POST">
             {% csrf_token %}
-            <div id="radio-group-container">
-                
-                <div class="radio-item">
-                    <input type="radio" id="cheapest-option" name="priority" value="Cheapest" required>
+           
+                <div class="form-check radio-item">
+                    <input class="form-check-input" type="radio" id="cheapest-option" name="priority" value="Cheapest" required>
                     <label for="cheapest-option">Cheapest</label>
                 </div>
-
-                <div class="radio-item">
-                    <input type="radio" id="closest-option" name="priority" value="Closest">
+                <div class="form-check check radio-item">
+                    <input class="form-check-input" type="radio" id="closest-option" name="priority" value="Closest">
                     <label for="closest-option">Closest</label>
                 </div>
-
-                <div class="radio-item">
-                    <input type="radio" id="cheapest-closest-option" name="priority" value="Cheapest and Closest">
+                <div class="form-check check radio-item">
+                    <input class="form-check-input" type="radio" id="cheapest-closest-option" name="priority" value="Cheapest and Closest">
                     <label for="cheapest-closest-option">Cheapest and Closest</label>
                 </div>
-            </div>
+                
+       
 
             <div id="location-selection-box">
                 <label for="locations">Select A Location:</label>
 
-                <select name="location" id="locations" required>
+                <select name="location" id="locations" class="form-select form-select-lg mb-3" required>
                     <option value="">Select Location</option>
                     {% if cities != None %}
                         {% for city in cities %}
@@ -46,7 +44,7 @@
             </div>
 
             <div id="button-container">
-                <button type="submit">Submit!</button>
+                <button type="submit" class="btn btn-primary">Submit!</button>
             </div>
         </form>
 

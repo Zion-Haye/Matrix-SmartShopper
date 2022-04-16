@@ -36,17 +36,21 @@
                             <td>&#9587;</td>
                         {% endif %}
                         <td>{{list.date_created}}</td>
-                        <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'" type="button" class="btn btn-primary">View Items</button></td> 
-                        <td><button onclick="window.location.href='/MakeListActive/{{list.id}}/'" type="button" class="btn btn-primary">Make Active</button></td> 
-                        <td><button onclick="window.location.href='/EditList/{{list.id}}/'" type="button" class="btn btn-primary">Edit</button></td> 
-                        <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'" type="button" class="btn btn-primary">Delete</button></td>
+                        <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'" type="button" class="btn btn-primary"><i class="large material-icons">visibility</i></button></td> 
+                        <td><button onclick="window.location.href='/MakeListActive/{{list.id}}/'" type="button" class="btn btn-primary"><i class="large material-icons">done</i></button></td> 
+                        <td><button onclick="window.location.href='/EditList/{{list.id}}/'" type="button" class="btn btn-primary"><i class="large material-icons">edit</i></button></td> 
+                        <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'" type="button" class="btn btn-danger"><i class="large material-icons">delete</i></button></td>
                     </tr>
                 {% endfor %}
         </table>
-    
-            {% else %}
-                    <p>Litst Empty</p>
-            {% endif %}
+       
+        </div>
+        {% else %}
+                    <p>List Empty</p>
+        {% endif %}
+
+        <div id="create-list-button-container">
+            <button onclick="window.location.href='/CreateList/'" type="button" class="btn btn-primary">Create List</button>
         </div>
 
         {% if listtoedit != None %}
@@ -57,30 +61,29 @@
                         <form class="edit-list-modal-form" action="/EditList/{{listtoedit.id}}/" method="POST">
                             {% csrf_token %}
 
-                            <div class="edit-list-modal-form-content-container">
-                                <div class="edit-list-modal-form-name-container"> 
+                   
+                                <div class="edit-list-modal-form-name-container form-group"> 
                                     <label for="listname">Name of List:</label>
-                                    <input type="text" name="listname" id="listname" value="{{listtoedit.name}}" required>
+                                    <input type="text" name="listname" id="listname" class="form-control" value="{{listtoedit.name}}" required>
                                 </div>
             
-                                <div class="edit-list-modal-form-description-container">
+                                <div class="edit-list-modal-form-description-container form-group">
                                     <label for="description">Description:</label>
-                                    <input type="textarea" name="description" id="description" value="{{listtoedit.description}}">
+                                    <input type="textarea" name="description" id="description" class="form-control" value="{{listtoedit.description}}">
                                 </div>
-                            </div>
-
-                            
-                            <div class="edit-list-modal-form-button-container">
+                           
                       
-                                <div class="edit-list-modal-form-back-button-container">
-                                    <button id="edit-list-back-button">Back</button>
-                                </div>
+                      
 
-                                <div class="edit-list-modal-form-submit-button-container">
-                                    <button type="submit">Save Changes</button>
-                                </div>
+                            <div class="edit-list-modal-form-submit-button-container">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
+                            
                         </form>
+
+                        <div class="edit-list-modal-form-back-button-container">
+                            <button id="edit-list-back-button" class="btn btn-primary">Back</button>
+                        </div>
                         
                     </div>
                 </div>
@@ -111,8 +114,8 @@
                                     </div>
                                 </div>
                                 <div class = "view-list-item-button-container">
-                                    <button>Update</button>
-                                    <button  onclick="window.location.href='/DeleteProductFromList/{{confirmlistitem.product.id}}/'">Remove</button>
+                                    <button class="btn btn-primary">Update</button>
+                                    <button  onclick="window.location.href='/DeleteProductFromList/{{confirmlistitem.product.id}}/'" class="btn btn-primary">Remove</button>
                                 </div>
 
                             </div>
@@ -125,7 +128,7 @@
                 </div>
 
                 <div id="view-list-back-button-container">
-                    <button id="view-list-back-button">Back</button>
+                    <button id="view-list-back-button" class="btn btn-primary">Back</button>
                 </div>
 
             </div>
