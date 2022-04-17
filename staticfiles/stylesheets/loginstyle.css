@@ -1,0 +1,95 @@
+#content{
+    width:100vw;
+    min-height:80vh;
+ 
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fbc6a8;
+    
+
+}
+
+
+#login-form-container{
+
+    width:45%;
+    height:auto;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+    padding-bottom: 2vh;
+
+    background-color: white;
+    
+
+
+}
+
+#login-form-container:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#login-form{
+    width:100%;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 2vh;
+
+    
+   
+}
+
+.login-form-item{
+    margin-bottom:2vh;
+}
+
+#login-form-username-container{
+    width:80%;
+    height: auto;
+    margin-bottom: 5vh;
+    
+}
+
+#login-form-password-container{
+    width:80%;
+    height: auto;
+    margin-bottom: 5vh;
+    
+}
+
+
+#login-image-container{
+    width:45%;
+    height:auto;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+
+#login-logo{
+    width:60%;
+    height: 80%;
+    border-radius: 5px;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}

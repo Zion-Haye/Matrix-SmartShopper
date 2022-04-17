@@ -1,0 +1,83 @@
+#content{
+    width:100vw;
+    height: auto;
+ 
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fbc6a8;
+
+    border:0.5px solid black;
+    
+
+}
+
+
+#page-content{
+    width:80%;
+    height: auto;
+ 
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+#grocery-results{
+    width:60%;
+    height: auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+/* Accordion */
+.accordion{
+    width:100%;
+    height:auto;
+}
+.accordion-bttn{
+   display:block;
+   width:100%;
+   min-height:auto;
+   height:8vh;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   background-color: lightgray;
+   color:black;
+   text-align:left;
+   /*transition: background 0.2s;*/
+}
+
+.accordion-bttn::after{
+   content: '\25be';
+   float: right;
+   transform: scale (1.5);
+}
+
+.accordion-bttn--active{
+   background-color: #55555555;
+}
+
+.accordion-bttn--active::after{
+   content: '\25b4';
+   float: right;
+   transform: scale (1.5);
+}
+
+.accordion-content{
+   overflow:hidden;
+   max-height:0;
+   transition:max-height 0.2s;
+}

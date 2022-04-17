@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+}
+
+.edit-list-modal-container{
+    /*This is the background of the modal */
+
+    position: fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    top:0;
+    left:0;
+    
+    width:100vw;
+    height:100vh;
+
+    background-color: rgba(0,0,0,0.3);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition: opacity 0.5s ease;
+}
+
+.edit-list-modal-container.show{
+    pointer-events: auto;
+    opacity:1;
+}
+
+#edit-list-modal{
+     /*This is the content of the modal */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background-color: #fff;
+
+    max-width:100%;
+    min-width:50%;
+    height:auto;
+
+    padding: 5vh 0 5vh 0;
+
+    border-radius:5px;
+}
+
+#edit-list-content-container{
+  width:80%;
+  height:auto; 
+
+  display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.edit-list-item-content-container{
+    width:70%;
+    height:100%;
+
+}
+
+.edit-list-modal-form{
+    width:100%;
+    height: auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+/* .edit-list-modal-form-name-container{
+    width:50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.edit-list-modal-form-description-container{
+    width:50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  
+} */
+
+.form-group{
+    width: 80%;
+    padding-top: 2vh;
+
+}
+
+.edit-list-modal-form-back-button-container{
+    width:50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-list-modal-form-submit-button-container{
+    width:50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    padding:2vh 0 2vh 0;
+}

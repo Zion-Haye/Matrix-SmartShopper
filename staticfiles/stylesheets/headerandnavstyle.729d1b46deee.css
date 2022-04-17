@@ -1,0 +1,166 @@
+header{
+    width:100vw;
+    height:10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color:#ef5d2e;
+
+    border: 0.5px solid black;
+}
+
+nav{
+    width:100vw;
+    height:10vh;
+    max-height:10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding:1vh 0 1vh 0;
+
+    background-color:#ef5d2e;
+}
+
+/*
+#login-button-container{
+    height:auto;
+    width:auto;
+    
+    margin-right:2vw;
+
+    border: 0.5px solid black;
+    
+}*/
+
+#section-1{
+    width:85%;
+    height:100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    border: 0.5px solid black;
+}
+
+#section-1 a{
+    color:black;
+}
+#section-2{
+    width:15%;
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 0.5px solid black;
+}
+
+/* #login-button{
+    margin-right:2vw;
+}
+
+#logout-button{
+    margin-right:2vw;
+} */
+
+#nav-section-1{
+    width:35%;
+    min-height:8vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border:0.5px solid black;
+
+}
+
+.nav-section-1-child{
+    width:30%;
+    min-height:8vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:5px;
+
+    background-color: #fbc6a8;
+
+    border:0.5px solid black;
+
+}
+
+.nav-section-1-child a{
+    text-decoration: none;
+    color:black;
+}
+
+#nav-section-2{
+    width:30%;
+    min-height:8vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+#nav-form{
+    width:100%;
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  
+}
+
+#nav-search-container{
+    width:80%;
+    height:90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#nav-section-3{
+    width:35%;
+    min-height:8vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border:0.5px solid black;
+}
+
+.nav-section-3-child a{
+    text-decoration: none;
+    color:black;
+}
+
+.nav-section-3-child{
+    width:30%;
+    min-height:8vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:5px;
+
+    background-color: #fbc6a8;
+
+    border:0.5px solid black;
+}
