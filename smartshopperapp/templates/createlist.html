@@ -55,33 +55,23 @@
         <div id="section-display-options" class="content-child">
 
             {% if user.is_authenticated %}
-
+            
                 
             <div id="section-display-lists">
+
+                <h1> Your Lists</h1>
+                
                 <table id="list-table">
                     <tr>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Active</th>
-                        <th>Date Created</th>
-                        <th>options</th>
+                        <th>Select List</th>
                     </tr>
         
                     {% if lists != None %}
                         {% for list in lists %}
                             <tr>
                                 <td>{{list.name}}</td>
-                                <td>{{list.description}}</td>
-                                {% if list.is_Active == True %}
-                                    <td>&#10003;</td>
-                                {% else %}
-                                    <td>&#9587;</td>
-                                {% endif %}
-                                <td>{{list.date_created}}</td>
-                                <td><button onclick="window.location.href='/ViewListItems/{{list.id}}/'">View Items</button></td> 
-                                <td><button onclick="window.location.href='/MakeListActive/{{list.id}}/'">Make Active</button></td> 
-                                <td><button onclick="window.location.href='/EditList/{{list.id}}/'">Edit</button></td>
-                                <td><button onclick="window.location.href='/DeleteList/{{list.id}}/'">Delete</button></td>
+                                <td><button onclick="window.location.href='/MakeListActive/{{list.id}}/'"type="button" class="btn btn-primary"><i class="large material-icons">done</i></button></td> 
                             </tr>
                         {% endfor %}
                 </table>
