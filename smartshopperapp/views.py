@@ -45,7 +45,6 @@ def display_home_page(request):
     return render (request, 'home.html')
 
 def display_category_page(request):
-    #Show all by default
     return render (request , 'selectcategory.html' )
 
 def display_catalogue_page(request):
@@ -164,9 +163,6 @@ def display_configure_results_page(request):
 
     if request.method=="POST":
         priority = request.POST.get('priority')
-        #location= None
-
-        #if ((priority == "Closest") or (priority== "Cheapest and Closest")):
         location = request.POST.get('location')
 
         if request.user.is_authenticated:
@@ -286,7 +282,6 @@ def delete_product_from_list(request, product_id):
     print("In Delete product from list")
 
     if request.user.is_authenticated:
-        print("In Delete product from list - if authenticated")
         user = request.user
         activelist = get_registered_user_active_list(user)
         product = get_product_by_id(product_id)
@@ -295,13 +290,11 @@ def delete_product_from_list(request, product_id):
         return redirect ('/Catalogue/')
 
 def edit_list_details(request, list_id):
-    print("In edit List Details")
     if request.user.is_authenticated:
         user = request.user
         current_user_lists = get_registered_user_lists(user)
 
         if request.method=="POST":
-            print("In edit List Details - POST")
 
             list_name = request.POST.get('listname')
             list_description = request.POST.get('description')
@@ -324,7 +317,6 @@ def edit_list_details(request, list_id):
         return render(request ,  'displaylists.html' , context)
 
 def display_list_items(request , list_id):
-    print("In Display List Items")
     if request.user.is_authenticated:
         user = request.user
         current_user_lists = get_registered_user_lists(user)
@@ -352,8 +344,6 @@ def display_account_page(request):
 
     if request.user.is_authenticated:
         user = request.user
-
-        print('In Accounts')
 
     return render (request, 'accounts.html')
 
@@ -384,11 +374,9 @@ def change_user_password(request):
 
         if request.method=="POST":
             password =  request.POST.get('password')
-
-            #Move To Seperate File?
             user.set_password(password)
             user.save()
-
+            messages.success(request,"Password Changed Successfully!")
             return redirect ('/Login/')
 
 
@@ -448,7 +436,7 @@ def display_login_page(request):
                 lastname = user.last_name
 
             
-                return redirect ('/')
+                return redirect ('/CreateList/')
             
             else:
                 messages.error(request,"Incorrect Credentials")
@@ -464,3 +452,11 @@ def logout_user(request):
     messages.success(request,"Logged Out Successfully!")
     return redirect("/")
     
+
+def delete_account(request):
+
+    if request.user.is_authenticated:
+        user = request.user
+        user.delete()
+        messages.success(request,"Account Deleted Successfully!")
+        return redirect("/")
