@@ -15,7 +15,7 @@
         <h1>My Lists</h1>
 
         <div id="list-table-container">
-
+        {% if lists != None %}
         <table id="list-table">
             <tr>
                 <th>Name</th>
@@ -25,7 +25,7 @@
                 <th>Options</th>
             </tr>
 
-            {% if lists != None %}
+            
                 {% for list in lists %}
                     <tr>
                         <td>{{list.name}}</td>
@@ -46,7 +46,10 @@
        
         </div>
         {% else %}
-                    <p>List Empty</p>
+            <div id="list-empty-container">
+                <p>List Empty</p>
+            </div>
+                    
         {% endif %}
 
         <div id="create-list-button-container">

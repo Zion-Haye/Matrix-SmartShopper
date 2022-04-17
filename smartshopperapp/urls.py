@@ -25,6 +25,7 @@ urlpatterns = [
     path('ChangeUserPassword/', views.change_user_password, name="change_user_password"),
     path('MakeListActive/<list_id>/', views.make_list_active, name="make_list_active"),
 
-    path('GroceryResults/',views.display_grocery_results, name="display_grocery_results")
+    path('GroceryResults/',views.display_grocery_results, name="display_grocery_results"),
+    path('DeleteAccount/', views.delete_account, name="delete_account")
     
 ]

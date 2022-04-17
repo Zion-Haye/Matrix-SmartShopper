@@ -1,13 +1,15 @@
 #content{
     width:100vw;
-    height:auto;
+    min-height: 80vh;
 
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;   
 
     padding-top:1vh;
+
+    background-color: #fbc6a8;
     
 }
 
@@ -39,6 +41,10 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+tr:nth-child(odd) {
+    background-color: white;
+}
+
 tr:hover {
     background-color: lightgray;
 }
@@ -50,4 +56,11 @@ tr:hover {
 
     padding-top: 5vh;
 
+}
+
+#list-empty-container{
+
+    display:flex;
+    justify-content: center;
+    align-items: center;  
 }

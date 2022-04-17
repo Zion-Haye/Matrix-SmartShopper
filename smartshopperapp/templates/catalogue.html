@@ -295,7 +295,9 @@
 
                 <div id="confirm-list-button-container">
                     <button class="btn btn-primary" id="confirm-list-back-button">Back</button>
+                    {% if confirmlistitems != None %}
                     <button class="btn btn-primary" onclick="window.location.href='/ConfigureResults/'" id="confirm-list-next-button">Next</button>
+                    {% endif %}
                 </div>
 
             </div>

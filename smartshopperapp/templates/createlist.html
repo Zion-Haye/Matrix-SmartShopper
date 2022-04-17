@@ -60,6 +60,7 @@
             <div id="section-display-lists">
 
                 <h1> Your Lists</h1>
+                {% if lists != None %}
                 
                 <table id="list-table">
                     <tr>
@@ -67,7 +68,7 @@
                         <th>Select List</th>
                     </tr>
         
-                    {% if lists != None %}
+                    
                         {% for list in lists %}
                             <tr>
                                 <td>{{list.name}}</td>
@@ -75,10 +76,11 @@
                             </tr>
                         {% endfor %}
                 </table>
-                    {% else %}
-                            <p>Litst Empty</p>
-                    {% endif %}
+                    
             </div>
+            {% else %}
+                    <p>Lists Empty</p>
+            {% endif %}
 
             {% else %}
 
