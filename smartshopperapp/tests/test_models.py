@@ -11,6 +11,7 @@ class TestModels(TestCase):
             brand_name = "Green Giant",
             full_item_name = "GREEN GIANT KLONDIKE  GOURMET POTATOES RED",
             item_name = "KLONDIKE  GOURMET POTATOES RED",
+            description = "RED",
             quantity = "1 ea",
             image = "https://shop.doortodoortt.com/trincity/wp-content/uploads/2020/12/GREEN-GIANT-KLONDIKE-GOURMET-POTATOES-RED.jpg"
         )
@@ -77,6 +78,8 @@ class TestModels(TestCase):
     def test_product_image_is_assigned_on_creation(self):
         self.assertEquals(self.product.image, "https://shop.doortodoortt.com/trincity/wp-content/uploads/2020/12/GREEN-GIANT-KLONDIKE-GOURMET-POTATOES-RED.jpg")
 
+    def test_description_is_assigned_on_creation(self):
+        self.assertEquals(self.product.description, "RED")
     
     #Configuration
     def test_configuration_priority_is_assigned_on_creation(self):
