@@ -24,11 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2=q5vuc*gtvi2k=9j#kqc7)=3pz^98i^p_%rw9u@wj+jl1euud'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
 
-ALLOWED_HOSTS = ['matrix-smartshopper.herokuapp.com' , '127.0.0.1']
-#ALLOWED_HOSTS = []
+DEBUG = True
+#DEBUG = False
+
+#ALLOWED_HOSTS = ['matrix-smartshopper.herokuapp.com' , '127.0.0.1']
+ALLOWED_HOSTS = []
 
 # Application definition
 
