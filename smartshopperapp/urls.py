@@ -26,6 +26,7 @@ urlpatterns = [
     path('MakeListActive/<list_id>/', views.make_list_active, name="make_list_active"),
 
     path('GroceryResults/',views.display_grocery_results, name="display_grocery_results"),
-    path('DeleteAccount/', views.delete_account, name="delete_account")
+    path('DeleteAccount/', views.delete_account, name="delete_account"),
+    path('Catalogue/UpdateItem/', views.update_product_quantity_from_catalogue , name="update_product_quantity_from_catalogeu")
     
 ]

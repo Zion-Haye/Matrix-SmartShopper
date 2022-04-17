@@ -261,6 +261,22 @@ def add_product_to_list(request):
 
     return redirect('/Catalogue/')
 
+def update_product_quantity_from_catalogue(request):
+    if request.user.is_authenticated:
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+
+        if request.method=="POST":
+            quantity = request.POST.get('product_quantity')
+            product_id = request.POST.get('product_id')
+
+            product = get_product_by_id(product_id)
+
+            update_list_item_quantity(activelist , product, quantity)
+
+            return redirect('/Catalogue/')
+
+
 def display_my_lists(request):
     
     if request.user.is_authenticated:
@@ -338,6 +354,8 @@ def make_list_active(request , list_id):
         set_list_to_active(list_id , user)
 
         return redirect ('/MyLists/')
+
+
 
 #User Account
 def display_account_page(request):

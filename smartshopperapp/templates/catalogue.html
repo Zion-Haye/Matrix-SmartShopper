@@ -224,15 +224,17 @@
                                 <div class="cart-items-description-container">
                                     <p>{{listitem.product.full_item_name}}</p>
                                 </div>
-                                <form class="cart-items-form">
+                                <form class="cart-items-form" action="/Catalogue/UpdateItem/" method="POST">
                                     {% csrf_token %}
                                     <div class="cart-items-form-quantity-container">
                                         <label for="quantity">Quantity:</label>
                                         <input type="number" class="form-control" id="product_quantity" name="product_quantity" min="0" value="{{listitem.item_quantity}}">
+                                        <input type="hidden" id="product_id" name="product_id" value="{{listitem.product.id}}">
+
                                     </div>
 
                                     <div class="cart-items-form-button-container">
-                                        <button class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                         <button class="btn btn-primary" onclick="window.location.href='/DeleteProductFromList/{{listitem.product.id}}/'">Remove</button>
                                     </div>
                                 </form>
@@ -261,20 +263,26 @@
 
                         {% for confirmlistitem in confirmlistitems %}
                             <div class="confirm-list-item-container">
+                                <form class="confirm-list-form" action="/Catalogue/UpdateItem/" method="POST">
+                                {% csrf_token %}
 
                                 <div class="confirm-list-item-image-container">
                                     <img src="{{confirmlistitem.product.image}}">
                                 </div>
+                                
 
                                 <div class="confirm-list-item-content-container">
 
                                     <div class="confirm-list-item-product-name-container">
                                         <p>{{confirmlistitem.product.full_item_name}}</p>
                                     </div>
+
+                                    <form>
                                     
                                     <div class="confirm-list-item-quantity-container">
                                         <label for="quantity">Quantity:</label>
                                         <input type="number" class="form-control" id="product_quantity" name="product_quantity" min="0" value="{{confirmlistitem.item_quantity}}">
+                                        <input type="hidden" id="product_id" name="product_id" value="{{confirmlistitem.product.id}}">
                                     </div>
                                   
                                 </div>
@@ -282,6 +290,8 @@
                                     <button class="btn btn-primary">Update</button>
                                     <button class="btn btn-primary" onclick="window.location.href='/DeleteProductFromList/{{confirmlistitem.product.id}}/'">Remove</button>
                                 </div>
+
+                                </form>
 
                             </div>
                         {% endfor %}
