@@ -1,5 +1,4 @@
 import csv
-from turtle import distance
 from smartshopperapp.models import GroceryDetails , GroceryInventory , ListItem
 from smartshopperapp.distancecalculator.distancecalculator import *
 from operator import itemgetter
