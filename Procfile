@@ -1,1 +1,0 @@
-web: gunicorn smartshopper.wsgi --log-file -
