@@ -26,7 +26,7 @@ def get_grocery_results(activelist,listitems):
 
     
     all_grocery_results_list_sorted = sort_results(all_grocery_results_list , activelist.configuration.priority)
-    
+
 
     return all_grocery_results_list_sorted
 
@@ -47,11 +47,6 @@ def sort_results(all_grocery_results_list, priority):
         return all_grocery_results_list
 
     
-def sortbydistance(all_grocery_results_list):
-    return all_grocery_results_list.sort(key=by_distance)
-
-def by_distance(e):
-    return e['distance']
 
 
 
