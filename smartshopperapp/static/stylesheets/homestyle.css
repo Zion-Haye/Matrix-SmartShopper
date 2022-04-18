@@ -2,6 +2,7 @@
     margin:0;
 }
 
+/*
 #content{
     width:100vw;
     height:auto;
@@ -10,7 +11,7 @@
     flex-direction:column;
     justify-content: center;
     align-items: center;
-
+   
     border:0.5px solid black;
 
 }
@@ -18,10 +19,12 @@
 #section-title{
     width:100%;
     height:15vh;
+*/
 
-    border:0.5px solid black;
+    
 }
 
+/*
 #section-steps{
     width:100%;
     height:auto;
@@ -29,7 +32,7 @@
     display:flex;
     justify-content: space-around;
     align-items: center;
-
+    background-color: aquamarine;
     border:0.5px solid black;
 }
 
@@ -50,6 +53,8 @@
     
     border:0.5px solid black;
 }
+
+*/
 
 button{
     margin:5vh 0 5vh 0;
