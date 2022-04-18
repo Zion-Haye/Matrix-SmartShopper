@@ -32,15 +32,18 @@ def display_home_page(request):
     #user.set_password("password")
     #user.save()
 
+    print("before populate city")
     populate_city_detail_database()
+    print("after populate city")
 
     #cities = CityDetails.objects.all()
     #ities.delete()
 
     #test_dc()
 
-
+    print("before populate product pool")
     populate_product_pool_database()
+    print("after populat product pool")
 
     print("Right before return render")
     return render (request, 'templates/home.html')
