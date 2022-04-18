@@ -1,0 +1,124 @@
+*{
+    box-sizing: border-box;
+}
+
+.edit-details-modal-container{
+    /*This is the background of the modal */
+
+    position: fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    top:0;
+    left:0;
+    
+    width:100vw;
+    height:100vh;
+
+    background-color: rgba(0,0,0,0.3);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition: opacity 0.5s ease;
+}
+
+.edit-details-modal-container.show{
+    pointer-events: auto;
+    opacity:1;
+}
+
+#edit-details-modal{
+     /*This is the content of the modal */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background-color: #fff;
+
+    max-width:100%;
+    min-width:55%;
+    height:auto;
+
+    padding: 5vh 0 5vh 0;
+
+    border-radius:5px;
+}
+
+#edit-details-content-container{
+  width:80%;
+  height:auto; 
+
+  
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  
+}
+
+#edit-details-form{
+    width:80%;
+    height: auto;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    
+}
+
+#edit-details-form-user-details-container{
+    width:100%;
+    height: auto;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    
+}
+
+#edit-details-form-button-container{
+    width:100%;
+    height: auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+   
+}
+
+#edit-details-back-button-container{
+    width:100%;
+    height: auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#edit-details-submit-button-container{
+    width:100%;
+    height: auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 2vh 0 2vh 0;
+
+   
+}
+
+.edit-details{
+    width:100%;
+    padding-bottom: 2vh;
+    
+}
