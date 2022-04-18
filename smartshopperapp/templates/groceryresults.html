@@ -42,8 +42,8 @@
                                 <tr>
                                     <td>{{grocery_item.item_name}}</td>
                                     <td>{{grocery_item.quantity}}</td>
-                                    <td>{{grocery_item.unit_price}}</td>
-                                    <td>{{grocery_item.total_cost}}</td>
+                                    <td>${{grocery_item.unit_price}}</td>
+                                    <td>${{grocery_item.total_cost}}</td>
                                 </tr>
            
 
@@ -51,7 +51,7 @@
                         </table>
            
 
-                        <p>Total Cost: {{groceryresult.total_cost}}</p>
+                        <p>Total Cost: ${{groceryresult.total_cost}}</p>
                         <p>Estimated Distance: {{groceryresult.distance}}</p>
                         <p>Estimated Time: {{groceryresult.duration}}</p>
 

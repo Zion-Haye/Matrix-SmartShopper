@@ -355,6 +355,15 @@ def make_list_active(request , list_id):
 
         return redirect ('/MyLists/')
 
+def select_list(request , list_id):
+
+    if request.user.is_authenticated:
+        user = request.user
+
+        set_list_to_active(list_id , user)
+
+        return redirect ('/SelectCategory/')
+
 
 
 #User Account
