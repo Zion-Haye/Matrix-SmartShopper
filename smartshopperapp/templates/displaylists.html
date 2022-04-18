@@ -85,7 +85,7 @@
                         </form>
 
                         <div class="edit-list-modal-form-back-button-container">
-                            <button id="edit-list-back-button" class="btn btn-primary">Back</button>
+                            <button type="button" id="edit-list-back-button" class="btn btn-primary">Back</button>
                         </div>
                         
                     </div>
@@ -123,8 +123,8 @@
                                     </div>
                                 </div>
                                 <div class = "view-list-item-button-container">
-                                    <button class="btn btn-primary">Update</button>
-                                    <button  onclick="window.location.href='/MyLists/RemoveItem/{{listitem.list.id}}/{{listitem.product.id}}/'" class="btn btn-primary">Remove</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button  type="button" onclick="window.location.href='/MyLists/RemoveItem/{{listitem.list.id}}/{{listitem.product.id}}/'" class="btn btn-primary">Remove</button>
                                 </div>
 
                                 </form>
@@ -139,7 +139,7 @@
                 </div>
 
                 <div id="view-list-back-button-container">
-                    <button id="view-list-back-button" class="btn btn-primary">Back</button>
+                    <button type="button" id="view-list-back-button" class="btn btn-primary">Back</button>
                 </div>
 
             </div>
