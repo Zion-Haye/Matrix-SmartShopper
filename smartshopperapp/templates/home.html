@@ -10,30 +10,116 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
     <div id="content">
-        <div id="section-title">
-            <p>Welcome to Smart Shopper!</p>
+        
+        <div id="contentwrap">
+        <div id="welcome-block">
+            <img id="companyLogo" src="{% static 'images/logo-black.png' %}" alt="SmartShopperLogo"> 
+            
+            <div id="text1">
+                <p class="welcome-block-text-1" id="text1TopPara">Browse your local grocery store without</p>
+                <p class="welcome-block-text-1">needing to leave your home</p>
+                <p class="welcome-block-text-1">_________________________</p>
+                <p class="welcome-block-text-2">Simply enter the items you want to find, save them to your cart</p>
+                <p class="welcome-block-text-2">and we will tell you where you can get the best deals</p>  
+            </div>        
+        
         </div>
 
-        <div id="section-steps">
-            <div class="section-steps-child"  id="section-steps-child-1">
-              
-            </div>
+        <!-- create a list/sign in/create an account -->
 
-            <div class="section-steps-child"  id="section-steps-child-2">
+        <div id="imageContainer" class="transform">
+
+            <img class="image" id="vegbackground" src="{% static 'images/FreshVeg.jpg' %}" alt="fresh-veg.jpg"> 
+
+            <div class="imgTransform">
+
+                    <p id="hoverText">Ready to Get Started?</p> 
+                    <a class="hover" id="hoverLink" href="/CreateList/">Create a list now</a>
+                     <!-- <div id="getStartedonClick-container">
+                    <button  id="getStartedonClick"  onclick="window.location.href='/CreateList/'"> Get Started!</button>
+                </div>   
+                 -->
                 
             </div>
 
-            <div class="section-steps-child" id="section-steps-child-3">
-                
+
+            
+        </div>
+
+        
+        <!-- Infographic about Smart Shopper -->
+
+        <div id="infograph">
+            
+            <div class="info-section" id="info-section-1">
+
+                <img class="info-image" id="info-shopping-photo" src="{% static 'images/shopping.jpg' %}" alt="Shopper"> 
+                <p class="info-text" id="info-section-1-para">Easy and free to sign up, can be used on any device anytime, anyplace! _______________________________</p>
+
             </div>
+
+            <div class="info-section" id="info-section-2">
+
+                <p class="info-text" id="info-section-2-para">Browse over 22,000 items across 22 groceries nationwide in one convenient app _______________________________</p>
+                <img class="info-image" id="info-aisle-photo" src="{% static 'images/aisle.jpg' %}" alt="GroceryAisle"> 
+
+            </div>
+
+            <div class="info-section" id="info-section-3">
+                
+                <img class="info-image" id="info-family-photo" src="{% static 'images/family.jpg' %}" alt="Family"> 
+                <p class="info-text" id="info-section-3-para">Spend less time in traffic and more time with the ones you love _______________________________</p>
+
+            </div>
+        
+        
+         <!-- END INFOGRAPH BLOCK-->
         </div>
 
-        <div id="section-button">
 
-            <button onclick="window.location.href='/CreateList/'"> Get Started!</button>
+
+
+
+
+s
+
+
+
+
+
+
+
+
+
+
+        <!-- ent of contentwrap tag -->
+        </div>
+
+        <div id="groceryLogoBlock">
+
+            <p id="finditems" class="welcome-block-text-1">Find items from all your favourite stores</p>
+            
+            <img class="companyLogos" id="pricesmart-logo" src="{% static 'images/pricesmart.png' %}" alt="PriceSmart"> 
+            <img class="companyLogos" id="solera-logo" src="{% static 'images/solera.png' %}" alt="Angostura Solera"> 
+            <img class="companyLogos" id="peppercorns-logo" src="{% static 'images/peppercorns.png' %}" alt="Peppercorns"> 
+            <img class="companyLogos" id="naughtygrape-logo" src="{% static 'images/naughtygrape.png' %}" alt="The Naughty Grape"> 
+            <img class="companyLogos" id="fyzool-logo" src="{% static 'images/fyzool.png' %}" alt="Fyzool's Supermarket"> 
+            <img class="companyLogos" id="southern-food-basket-logo" src="{% static 'images/SouthernFoodBasket.png' %}" alt="Southern Food Basket"> 
+            <img class="companyLogos" id="rodneys-logo" src="{% static 'images/Rodneys.png' %}" alt="Rodneys"> 
+            <img class="companyLogos" id="belair-logo" src="{% static 'images/belair.png' %}" alt="Bel Air Stores"> 
+            <img class="companyLogos" id="bluesky-logo" src="{% static 'images/BlueSkyGrocery.png' %}" alt="Blue Sky Grocery"> 
+            <img class="companyLogos" id="dmarketmovers-logo" src="{% static 'images/dMarketMovers.png' %}" alt="d Market Movers"> 
+
+
 
         </div>
-    </div>
+
+        <!--end of content tag-->
+        </div>
+
+
+        
 
 {% endblock %}
