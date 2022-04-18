@@ -29,6 +29,7 @@ urlpatterns = [
     path('DeleteAccount/', views.delete_account, name="delete_account"),
     path('Catalogue/UpdateItem/', views.update_product_quantity_from_catalogue , name="update_product_quantity_from_catalogue"),
     path('SelectList/<list_id>/', views.select_list , name="select_list")
+    
 
     
 ]
