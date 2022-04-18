@@ -42,6 +42,7 @@ def display_home_page(request):
 
     populate_product_pool_database()
 
+    print("Right before return render")
     return render (request, 'templates/home.html')
 
 def display_category_page(request):
