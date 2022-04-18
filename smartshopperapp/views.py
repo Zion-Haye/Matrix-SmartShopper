@@ -25,15 +25,15 @@ def display_home_page(request):
     #product = Product.objects.all()
     #product.delete()
     
-    #populate_grocery_detail_database()
-    #populate_grocery_inventory_database()
+    populate_grocery_detail_database()
+    populate_grocery_inventory_database()
 
     #user = User.objects.get(username="johndoe")
     #user.set_password("password")
     #user.save()
 
     print("before populate city")
-    #populate_city_detail_database()
+    populate_city_detail_database()
     print("after populate city")
 
     #cities = CityDetails.objects.all()
@@ -42,11 +42,11 @@ def display_home_page(request):
     #test_dc()
 
     print("before populate product pool")
-    #populate_product_pool_database()
+    populate_product_pool_database()
     print("after populat product pool")
 
     print("Right before return render")
-    return render (request, 'templates/home.html')
+    return render (request, 'home.html')
 
 def display_category_page(request):
     return render (request , 'selectcategory.html' )

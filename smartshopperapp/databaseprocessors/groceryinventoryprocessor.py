@@ -38,7 +38,7 @@ def populate_grocery_inventory_database():
                         groceryinventory.save()
                         #product.commit()
                     except:
-                        print("Error")
+                        print("Error - Grocery Inventory")
 
                 else:
                     print("Grocery: " , grocery_name , "does not exist")

@@ -26,4 +26,4 @@ def populate_city_detail_database():
                     city_detail.save()
                     #product.commit()
                 except:
-                    print("Error")
+                    print("Error - City Details")
