@@ -88,13 +88,25 @@ WSGI_APPLICATION = 'smartshopper.wsgi.application'
     #}
 #}
 
+#Local Postgress
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'SmartShopperApp',
+        #'USER' : 'postgres',
+        #'PASSWORD' : 'adminpassword',
+        #'HOST' : 'localhost',
+        #'PORT' : ''
+    #}
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'SmartShopperApp',
-        'USER' : 'postgres',
+        'NAME': 'SmartShopper_db',
+        'USER' : 'postgres_aws',
         'PASSWORD' : 'adminpassword',
-        'HOST' : 'localhost',
+        'HOST' : 'database-2.cvvypp4kzdnt.us-east-1.rds.amazonaws.com',
         'PORT' : ''
     }
 }
