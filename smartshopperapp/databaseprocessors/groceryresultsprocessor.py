@@ -1,6 +1,8 @@
 import csv
+from turtle import distance
 from smartshopperapp.models import GroceryDetails , GroceryInventory , ListItem
 from smartshopperapp.distancecalculator.distancecalculator import *
+from operator import itemgetter
 
 
 
@@ -22,9 +24,34 @@ def get_grocery_results(activelist,listitems):
     #print("All results")
     #print (all_grocery_results_list)
 
-    return all_grocery_results_list
+    
+    all_grocery_results_list_sorted = sort_results(all_grocery_results_list , activelist.configuration.priority)
+    
+
+    return all_grocery_results_list_sorted
+
+
+def sort_results(all_grocery_results_list, priority):
+
+    if priority == "Cheapest":
+        print("In Cheapest")
+        return all_grocery_results_list
+
+    elif priority == "Closest":
+        print("In closest")
+        all_grocery_results_list_sorted = sorted(all_grocery_results_list ,key=itemgetter('distance'))
+        return all_grocery_results_list_sorted
+
+    elif priority == "Cheapest and Closest":
+        print("In closest and cheapest")
+        return all_grocery_results_list
 
     
+def sortbydistance(all_grocery_results_list):
+    return all_grocery_results_list.sort(key=by_distance)
+
+def by_distance(e):
+    return e['distance']
 
 
 
@@ -112,13 +139,23 @@ def get_individual_grocery_result(grocery_inventory , grocery , listitems , acti
     grocery_result["num_not_found"] = num_not_found
     grocery_result["total_cost"] = total_cost
 
-    #googleAPIresponse = get_google_response(grocery.branch_location , activelist.configuration.location)
+    googleAPIresponse = get_google_response(grocery.branch_location , activelist.configuration.location)
 
-    #grocery_result["distance"] = googleAPIresponse["distance"]
-    #grocery_result["duration"] = googleAPIresponse["duration"]
+    
+    distance_string = googleAPIresponse["distance"]
 
-    grocery_result["distance"] = "Disconnected"
-    grocery_result["duration"] = "Disconnected"
+    if distance_string != "Not Found":
+        distance_list =  distance_string.split()
+        distance = distance_list[0]
+        grocery_result["distance"] = float(distance)
+
+    else:
+        grocery_result["distance"] = googleAPIresponse["distance"]
+
+    grocery_result["duration"] = googleAPIresponse["duration"]
+
+    #grocery_result["distance"] = "Disconnected"
+    #grocery_result["duration"] = "Disconnected"
 
     #print(grocery_result)
 
