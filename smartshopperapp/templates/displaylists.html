@@ -103,6 +103,9 @@
 
                         {% for listitem in listitems %}
                             <div class="view-list-item-container">
+                                <form class="view-list-form" action="/MyLists/UpdateItem/" method="POST">
+                                    {% csrf_token %}
+
 
                                 <div class="view-list-item-image-container">
                                     <img src="{{listitem.product.image}}">
@@ -113,13 +116,18 @@
                                         <p>{{listitem.product.full_item_name}}</p>
                                     </div>
                                     <div>
-
+                                        <label for="quantity">Quantity:</label>
+                                        <input type="number" class="form-control" id="product_quantity" name="product_quantity" min="0" value="{{listitem.item_quantity}}" required>
+                                        <input type="hidden" id="product_id" name="product_id" value="{{listitem.product.id}}">
+                                        <input type="hidden" id="list_id" name="list_id" value="{{listitem.list.id}}">
                                     </div>
                                 </div>
                                 <div class = "view-list-item-button-container">
                                     <button class="btn btn-primary">Update</button>
-                                    <button  onclick="window.location.href='/DeleteProductFromList/{{confirmlistitem.product.id}}/'" class="btn btn-primary">Remove</button>
+                                    <button  onclick="window.location.href='/MyLists/RemoveItem/{{listitem.list.id}}/{{listitem.product.id}}/'" class="btn btn-primary">Remove</button>
                                 </div>
+
+                                </form>
 
                             </div>
                         {% endfor %}

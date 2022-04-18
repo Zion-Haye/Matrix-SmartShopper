@@ -365,6 +365,44 @@ def select_list(request , list_id):
         return redirect ('/SelectCategory/')
 
 
+def remove_item_from_mylist(request , list_id , product_id):
+
+    if request.user.is_authenticated:
+        #user = request.user
+
+        print("Remove item from mylist")
+        print(list_id)
+        print(product_id)
+
+        list = find_list_by_id(list_id)
+        product = get_product_by_id(product_id)
+
+        delete_item_from_list_item(list , product)
+
+        return redirect ('/ViewListItems/' + list_id + '/')
+
+
+def update_item_from_mylist (request):
+    if request.user.is_authenticated:
+        #user = request.user
+        if request.method=="POST":
+
+            list_id = request.POST.get('list_id')
+            product_id = request.POST.get('product_id')
+            quantity = request.POST.get('product_quantity')
+
+            print("Update item from mylist")
+            print(list_id)
+            print(product_id)
+            print(quantity)
+
+            list = find_list_by_id(list_id)
+            product = get_product_by_id(product_id)
+
+            update_list_item_quantity(list , product, quantity)
+
+            return redirect ('/ViewListItems/' + list_id + '/')
+   
 
 #User Account
 def display_account_page(request):
