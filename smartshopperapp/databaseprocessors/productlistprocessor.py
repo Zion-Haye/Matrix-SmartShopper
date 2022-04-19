@@ -50,7 +50,7 @@ def populate_product_pool_database():
     if not products.exists():
         #print("None None None")
 
-        with open('smartshopperapp\datasheets\display_sample.csv') as csv_file:
+        with open('smartshopperapp\datasheets\display_sample_v2.csv') as csv_file:
             csv_reader = csv.reader(csv_file)
 
             #next(csv_reader)
@@ -76,10 +76,3 @@ def populate_product_pool_database():
                     print("Error - Poduct List")
 
 
-""" product_category = row[0]
-                sub_category = row[1]
-                brand_name = row[2]
-                full_item_name = row[3]
-                item_name = row[4]
-                quantity = row[5]
-                image_url = row[6] """
