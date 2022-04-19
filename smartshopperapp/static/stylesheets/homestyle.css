@@ -200,6 +200,7 @@ button{
 .image{
     transition: .5s ease;
     opacity:1;
+    filter:brightness(.5)
 }
 
 .imgTransform{
@@ -224,15 +225,18 @@ button{
 
 #hoverText{
     
+    
+    background-color: black;
     margin-top: 4cm;
-    margin-right:1cm;
+    margin-right:6cm;
     margin-left:6cm;
     width: 19cm;
-    text-align: center;
+    
     position:absolute;
+    text-align: center;
     text-decoration: none;
     color: white;
-    display:flex;
+    display:inline-block;
     font-size: 60px;
 
 }
