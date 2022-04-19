@@ -329,7 +329,7 @@
 }
 
 .accordion-bttn--active{
-    background-color: #00302D;
+    background-color: rgba(255, 225, 181, .671);
 }
 
 .accordion-bttn--active::after{
