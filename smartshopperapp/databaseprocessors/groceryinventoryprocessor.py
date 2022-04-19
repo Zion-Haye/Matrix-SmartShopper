@@ -8,7 +8,7 @@ def populate_grocery_inventory_database():
     if not grocery_inventory.exists():
         #print("None None None")
 
-        with open('smartshopperapp\datasheets\grocery_inventory.csv') as csv_file:
+        with open('grocery_inventory.csv') as csv_file:
             csv_reader = csv.reader(csv_file)
 
             #next(csv_reader)
