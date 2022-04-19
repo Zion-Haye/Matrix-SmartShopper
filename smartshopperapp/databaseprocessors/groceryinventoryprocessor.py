@@ -8,7 +8,7 @@ def populate_grocery_inventory_database():
     if not grocery_inventory.exists():
         #print("None None None")
 
-        with open('\grocery_inventory.csv') as csv_file:
+        with open('smartshopperapp\datasheets\grocery_inventory.csv') as csv_file:
             csv_reader = csv.reader(csv_file)
 
             #next(csv_reader)
@@ -30,13 +30,17 @@ def populate_grocery_inventory_database():
 
                     grocery =  GroceryDetails.objects.get(grocery_name = grocery_name , branch_location = branch_location) 
 
+                    print
+
                     groceryinventory = GroceryInventory(category=product_category , sub_category=sub_category,
                     brand_name = brand_name , item_name=item_name, size=size , cost=cost ,image=image_url , grocery = grocery)
 
+                    
 
                     try:
                         groceryinventory.save()
                         #product.commit()
+
                     except:
                         print("Error - Grocery Inventory")
 

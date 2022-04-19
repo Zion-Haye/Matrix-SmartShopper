@@ -8,7 +8,7 @@ def populate_grocery_detail_database():
     if not groceries.exists():
         #print("None None None")
 
-        with open('\grocery_detail.csv') as csv_file:
+        with open('smartshopperapp\datasheets\grocery_detail.csv') as csv_file:
             csv_reader = csv.reader(csv_file)
 
             #next(csv_reader)

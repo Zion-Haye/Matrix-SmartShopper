@@ -11,7 +11,7 @@ def populate_city_detail_database():
     if not cities.exists():
         #print("None None None")
 
-        with open('\city_address.csv') as csv_file:
+        with open('smartshopperapp\datasheets\city_address.csv') as csv_file:
             csv_reader = csv.reader(csv_file)
 
             #next(csv_reader)

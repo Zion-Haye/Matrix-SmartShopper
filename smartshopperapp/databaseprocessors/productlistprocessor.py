@@ -50,7 +50,7 @@ def populate_product_pool_database():
     if not products.exists():
         #print("None None None")
 
-        with open('\display_sample.csv') as csv_file:
+        with open('smartshopperapp\datasheets\display_sample.csv') as csv_file:
             csv_reader = csv.reader(csv_file)
 
             #next(csv_reader)
