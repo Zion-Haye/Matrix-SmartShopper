@@ -43,7 +43,7 @@
                     {% for groceryresult in groceryresults %}
 
                     <div class="accordion">
-                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}}</button>
+                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}} | {{groceryresult.distance}} mi | {{groceryresult.duration}} | ${{groceryresult.total_cost}}</button>
                         <div class="accordion-content">
 
                         <!-- <p>Grocery Name: {{groceryresult.grocery_name}}</p>

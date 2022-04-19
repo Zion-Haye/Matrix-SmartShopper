@@ -1,5 +1,5 @@
 
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, TestCase
 from django.urls import reverse, resolve
 
 from smartshopperapp.views import *
@@ -51,7 +51,7 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func , display_configure_results_page)
 
     def test_display_catalogue_subcategory_url_resolves(self):
-        url =  reverse('display_catalogue_subcategory', args=['Fruits'])
+        url =  reverse('display_catalogue_subcategory', args=['Snacks'])
         self.assertEquals(resolve(url).func , display_catalogue_page_with_subcategory)
 
     def test_add_product_to_list_url_resolves(self):
