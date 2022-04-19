@@ -8,9 +8,9 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #fbc6a8;
+    background-color: #f28c28;
 
-    border:0.5px solid black;
+   
     
 
 }
@@ -20,13 +20,13 @@
     width:80%;
     height: auto;
  
-
+    background-color: #ffbe45ef;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    border:0.5px solid black;
+
 }
 
 #grocery-results{
@@ -38,17 +38,20 @@
     justify-content: center;
     align-items: center;
 
-    border:0.5px solid black;
+    background-color: rgba(255, 225, 181, 0.671);
+
+  
 }
 
 #configuration-section{
-   width:100%;
+   width:60%;
    min-height: 30vh;
    display:flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   border:0.5px solid black;
+   background-color: rgba(255, 225, 181, 0.671);
+
 }
 
 #configuration-details-container{
@@ -59,7 +62,7 @@
    justify-content: center;
    align-items: center;
 
-   border:0.5px solid black;
+ 
 
 
 }
@@ -71,7 +74,7 @@
    justify-content: center;
    align-items: center;
 
-   border:0.5px solid black;
+
 
 }
 
@@ -82,7 +85,7 @@
    justify-content: center;
    align-items: center;
 
-   border:0.5px solid black;
+ 
 }
 
 
@@ -94,7 +97,7 @@
    justify-content: center;
    align-items: center;
 
-   border:0.5px solid black;
+  
 }
 
 /* Accordion */
@@ -146,4 +149,5 @@
    overflow:hidden;
    max-height:0;
    transition:max-height 0.2s;
+   background-color: white;
 }
