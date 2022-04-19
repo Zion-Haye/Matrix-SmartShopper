@@ -73,7 +73,7 @@ def populate_product_pool_database():
                     product.save()
                     #product.commit()
                 except:
-                    print("Error")
+                    print("Error - Poduct List")
 
 
 """ product_category = row[0]

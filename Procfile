@@ -1,1 +1,1 @@
-web: gunicorn smartshopper.wsgi --log-file -
+web: gunicorn smartshopper.wsgi

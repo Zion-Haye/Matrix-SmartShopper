@@ -17,7 +17,7 @@ class Product (models.Model):
     item_name = models.CharField(max_length=100, null=True)
     description = models.CharField(max_length=100 , null=True)
     quantity = models.CharField(max_length=100, null=True)
-    image = models.CharField(max_length=100, null=True)
+    image = models.CharField(max_length=200, null=True)
     
 
 class Configuration (models.Model):
@@ -48,8 +48,8 @@ class GroceryInventory(models.Model):
     brand_name = models.CharField(max_length=100, null=True)
     item_name = models.CharField(max_length=100, null=True)
     size = models.CharField(max_length=100, null=True)
-    cost = models.FloatField()
-    image = models.CharField(max_length=100, null=True)
+    cost = models.CharField(max_length=100, null=True)
+    image = models.CharField(max_length=200, null=True)
     grocery = models.ForeignKey(GroceryDetails,on_delete=models.CASCADE, null=True)
 
 class CityDetails(models.Model):

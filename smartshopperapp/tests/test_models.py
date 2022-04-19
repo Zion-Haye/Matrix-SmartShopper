@@ -1,5 +1,5 @@
 from django.test import TestCase
-from smartshopperapp.models import Product, Configuration , List , ListItem
+from smartshopperapp.models import Product, Configuration , List , ListItem , GroceryDetails , GroceryInventory , CityDetails
 from django.contrib.auth.models import User
 
 class TestModels(TestCase):
@@ -40,6 +40,27 @@ class TestModels(TestCase):
             list = self.list,
             product = self.product,
             item_quantity = 1
+        )
+
+        self.groceryDetails = GroceryDetails.objects.create(
+            grocery_name = "Angostura Solera",
+            branch_location = "Tragarete Rd, Port of Spain"
+        )
+
+        self.cityDetails = CityDetails.objects.create(
+            city_name = "Aranguez",
+            city_address = "Aranguez,Trinidad"
+        )
+
+        self.groceryInventory = GroceryInventory.objects.create(
+            category = "Fresh Produce",
+            sub_category = "Vegetables",
+            brand_name = "Green Giant",
+            item_name = "KLONDIKE  GOURMET POTATOES RED",
+            size = "1 ea",
+            cost = "12.99",
+            image = "https://shop.doortodoortt.com/trincity/wp-content/uploads/2020/12/GREEN-GIANT-KLONDIKE-GOURMET-POTATOES-RED.jpg",
+            grocery = self.groceryDetails
         )
 
 
@@ -114,3 +135,43 @@ class TestModels(TestCase):
 
     def test_list_item_item_quantity_is_assigned_on_creation(self):
         self.assertEquals(self.listItem.item_quantity, 1)
+
+    #Grocery Details
+    def test_grocery_name_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryDetails.grocery_name, "Angostura Solera")
+
+    def test_branch_location_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryDetails.branch_location,"Tragarete Rd, Port of Spain" )
+
+    #Grocery Inventory
+    def test_category_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.category, "Fresh Produce")
+
+    def test_sub_category_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.sub_category, "Vegetables" )
+
+    def test_brand_name_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.brand_name, "Green Giant")
+
+    def test_item_name_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.item_name, "KLONDIKE  GOURMET POTATOES RED")
+
+    def test_size_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.size, "1 ea")
+
+    def test_cost_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.cost, "12.99" )
+
+    def test_image_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.image, "https://shop.doortodoortt.com/trincity/wp-content/uploads/2020/12/GREEN-GIANT-KLONDIKE-GOURMET-POTATOES-RED.jpg")
+
+    def test_grocery_is_assigned_on_creation(self):
+        self.assertEquals(self.groceryInventory.grocery, self.groceryDetails)
+
+
+    #City Details
+    def test_city_name_is_assigned_on_creation(self):
+        self.assertEquals(self.cityDetails.city_name, "Aranguez")
+
+    def test_city_address_is_assigned_on_creation(self):
+        self.assertEquals(self.cityDetails.city_address, "Aranguez,Trinidad")

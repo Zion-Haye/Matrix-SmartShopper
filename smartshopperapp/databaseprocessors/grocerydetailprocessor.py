@@ -23,4 +23,4 @@ def populate_grocery_detail_database():
                     grocery_detail.save()
                     #product.commit()
                 except:
-                    print("Error")
+                    print("Error -  Grocery Details")

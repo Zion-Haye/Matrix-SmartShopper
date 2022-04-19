@@ -16,6 +16,22 @@ def add_item_to_list_items(list , product, quantity):
             listitem = ListItem(list=list , product=product , item_quantity=quantity)
             listitem.save()
 
+def update_list_item_quantity(list , product, quantity):
+    listitem = ListItem.objects.all().filter(list=list , product=product)
+    
+
+    if listitem.exists():
+        listitem= ListItem.objects.get(list=list , product=product)
+
+        if quantity!= 0:
+            listitem.item_quantity = quantity
+            listitem.save()
+
+        else:
+            delete_item_from_list_item(list , product)
+
+
+
 def get_list_items(list):
     active_list_items = ListItem.objects.all().filter(list=list)
 

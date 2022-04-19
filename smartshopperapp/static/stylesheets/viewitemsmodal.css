@@ -78,13 +78,24 @@
     width:100%;
     height: 10vh;
 
+    /* display:flex;
+    justify-content: center;
+    align-items: flex-start;
+ */
+    border:0.5px solid black;
+
+
+}
+
+.view-list-form{
+    width:100%;
+    height: 100%;
+
     display:flex;
     justify-content: center;
     align-items: flex-start;
 
     border:0.5px solid black;
-
-
 }
 
 .view-list-item-image-container{
