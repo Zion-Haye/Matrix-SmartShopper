@@ -399,7 +399,7 @@ a:hover{
 .catalogue-items-content-container{
     border:none;
     
-    background-color: #ffbe45ef;
+    /* background-color: #ffbe45ef; */
 }
 
 .accordion-content li,a{
