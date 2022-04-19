@@ -22,8 +22,8 @@ def display_home_page(request):
     print("In Home:")
     print("Is Authenticated: ", isauthenticated)
 
-    grocery_inventory =GroceryInventory.objects.all()
-    grocery_inventory.delete()
+    #grocery_inventory =GroceryInventory.objects.all()
+   # grocery_inventory.delete()
 
     #product = Product.objects.all()
     #product.delete()
@@ -31,7 +31,7 @@ def display_home_page(request):
     #populate_product_pool_database()
     #populate_city_detail_database()
     #populate_grocery_detail_database()
-    #populate_grocery_inventory_database()
+    populate_grocery_inventory_database()
 
     #user = User.objects.get(username="johndoe")
     #user.set_password("password")
