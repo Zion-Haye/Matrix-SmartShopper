@@ -57,9 +57,275 @@
 
 */
 
+
+
+
 button{
     margin:5vh 0 5vh 0;
     height:5vh;
 }
 
+#content{
 
+    background-color: #f28c28;
+    width:auto;
+    height: auto;
+    min-width: fit-content;
+    min-height: fit-content;
+    max-width: max-content;
+    margin-left:1cm;
+    margin-right:.5cm;
+    margin-top:.5cm;
+    margin-bottom: .5cm;
+    display: flex;
+    
+    /* border-radius: 10px; */
+
+}
+
+#contentwrap{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items:center;
+}
+
+/*contains transparent logo, "browsing your local..." text */
+#welcome-block{
+    background-color:rgba(255, 225, 181, .671);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left:auto;
+    align-items:initial;
+    display: inline-flex;
+    width: 28cm;
+    height:fit-content;
+    min-height:min-content;
+    /*
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    */
+}
+
+#companyLogo{
+    height: 11cm;
+    width: 8.5cm;
+    margin-left:1cm;
+    margin-right:1cm;
+    margin-bottom:1cm;
+    display:flex;
+}
+
+/* Browse your local grocery store without needing to leave your home!*/
+
+#text1{
+    margin-top:.5cm;
+}
+
+#text1TopPara{
+    margin-top:1cm;
+}
+
+.welcome-block-text-1{
+    color:black;
+    font-size: 32px;
+    font-family: 'Segoe UI', Tahoma Verdana, sans-serif;
+    text-align: center;
+}
+
+/*Simply enter the items you want to find.....tell you where you can get the best deals!*/
+
+.welcome-block-text-2{
+    color:black;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    text-align:center;
+
+}
+
+/*Right menu with participating grocery logos*/
+
+#finditems{
+    margin-top:1cm;
+}
+
+#groceryLogoBlock{
+    background-color:rgba(255, 225, 181, 0.671);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left:1cm;
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 18cm;
+    height:fit-content;
+    min-height:min-content;
+}
+
+.companyLogos{
+    width:fit-content;
+    height:7cm;
+
+}
+
+/* Get Started prompt div contents*/
+
+#imageContainer{
+    border-radius:10px;
+    width:28cm;
+    height: 15.6cm;
+    margin-top: 1cm;
+    display: flex;
+    background-color: black;
+}
+
+/*Code to transform FreshVeg.jpg opaque on hover and produce link to create an account or list*/
+
+.transform:hover .image{
+    opacity: 0.3;
+}
+
+.transform:hover .imgTransform{
+    opacity:1;
+}
+
+#vegbackground{
+    width: inherit;
+    border-radius: inherit;
+
+}
+
+.image{
+    transition: .5s ease;
+    opacity:1;
+}
+
+.imgTransform{
+    transition: .5s ease;
+    opacity:0;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    position:absolute;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+/*
+#imgText{
+    background-color: blueviolet;
+    width:20cm;
+    height:10cm;
+}
+*/
+
+#hoverText{
+    
+    margin-top: 4cm;
+    margin-right:1cm;
+    margin-left:6cm;
+    width: 19cm;
+    text-align: center;
+    position:absolute;
+    text-decoration: none;
+    color: white;
+    display:flex;
+    font-size: 60px;
+
+}
+
+
+#hoverLink{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    padding: 16px 32px;
+    border-radius:10px;
+    margin-top: 7.1cm;
+    margin-right:1cm;
+    margin-left:9cm;
+    width: 10cm;
+    text-align: center;
+    position:absolute;
+    color:rgb(255, 255, 255);
+    display:grid  ;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+.hover{
+    
+    box-shadow: 0px 0px 20px #ffbe45ef;
+}
+/* end transformation code*/
+
+/*
+#getStartedonClick-container{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    background-color: chartreuse;
+
+}
+
+*/
+
+/* This section controls css for infographic below create a list button */
+
+#infograph{
+    margin-top: 1cm;
+    background-color: rgba(255, 225, 181, 0.671);
+    width:28cm;
+    height: fit-content; /* 35 cm */
+    border-radius: 10px;        
+}
+
+
+.info-section{
+    margin-top: inherit;
+    width: 26cm;
+    height: 10cm;
+    margin-left:1cm;
+    margin-right:1cm;
+    
+}
+
+.info-image{
+
+    height:10cm;
+    width: 10cm;
+
+}
+
+.info-text{
+    height:10cm;
+    width:18cm;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    padding: 110px 70px 25px 60px;
+}
+
+#info-section-1{
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+#info-section-2{
+    display: inline-flex;
+    justify-content: space-between;
+    
+}
+
+#info-aisle-photo{
+    margin-left:1cm;
+}
+
+#info-section-3{
+    margin-bottom: 1cm;
+    display: inline-flex;
+    justify-content: space-between;
+}

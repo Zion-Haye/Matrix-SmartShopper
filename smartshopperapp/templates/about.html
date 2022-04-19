@@ -1,0 +1,33 @@
+{% extends "basetemplate1.html" %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets\aboutus.css' %}?{% now "U" %}">
+
+{% endblock %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+    <div id="content">
+        <div class="block" id="mission-statement">
+            <p class="text-header-properties"> MISSION STATEMENT</p>
+            <p class="text-properties" id="mission-statement-text">
+                Smart Shopper is an online grocery catalog that helps the savvy customer maximize
+                their spending budget with just the tap of a button. With 22 grocery locations nationwide and over 20,000 products
+                we provide a large selection of items our users can browse to create their shopping lists, whether its a few items
+                for a weekday dinner or preparation for a big event. We want to help our users maximize their dollar in the 
+                grocery stores, minus the runarounds.
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="block" id="block-2"></div>
+        <div class="block" id="block-3"></div>
+    </div>      
+
+{% endblock %}

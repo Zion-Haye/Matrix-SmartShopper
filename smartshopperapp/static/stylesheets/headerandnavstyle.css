@@ -1,9 +1,22 @@
 
+#headnavContainer{
+    
+    min-height: fit-content;
+    
+    background-color:#051E21; 
+    /*min-width:fit-content;
+    */
+    max-width: max-content; 
+    max-height:fit-content;
+    width: 51.3cm;
+    
+}
+
 header{
     
     height:12vh;
-    width:100vw;
-    min-width:25cm;
+    
+    min-width:fit-content;
     justify-content: center;
     align-items:initial;
     display: inline-flex;
@@ -13,28 +26,20 @@ header{
 
 #divider{
     
-    width:100vw;
+    width:inherit;
     height:0.2cm;
     background-color:#00302D;
 
 }
 
 
-#nav-padding{
 
-    background-color:#4af1e6;
-    height:6vh;
-    width: 2.5cm;
-    display: inline-flex;
-    justify-content: center;
-    align-items: initial;
-    flex-shrink: 0;
-}
 
 nav{
     
-    width:100vw;
-    min-width:27cm;
+    width:inherit;
+    min-width:fit-content;
+    margin-right:1cm;
     height:6vh;
     display: flex;
     justify-content: center;
@@ -107,22 +112,22 @@ nav{
 }
 
 #searchBarContainer{
-
     position:relative;
-    width:100%;
+    width:fit-content;
+    min-width:10cm;
     max-height:1cm;
 }
 
 
 #searchbar{
+
     position:relative;
-    min-width:8cm;
+    width:30cm;
+    min-width:10cm;
     max-height: 1cm;
-    margin-right:1cm;
     height: 1cm;
     top:2%;
     left:5%;
-    right:0px;
 }
 
 
@@ -150,11 +155,11 @@ nav{
 
 
 #profileButtonContainer{
-    width:15%;
-    height:100%;
+    width:fit-content;
+    height:fit-content;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-start;
+    align-items:flex-start;
     
 }
 
@@ -204,6 +209,30 @@ nav{
 
 }
 
+.navButton1{
+    margin-right:1cm;
+    width:max-content;
+    height:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:5px;
+    border:inherit;
+    text-decoration: none;
+    color:#FFAD4E;
+
+}
+
+.navButton1:hover a{
+    color:#bb6808;
+}
+
+.navButton1 a{
+    overflow:hidden;
+    text-decoration: none;
+    color:#FFAD4E;
+
+}
 
 .navButton a{
     overflow:hidden;
@@ -231,8 +260,21 @@ nav{
 }
 
 #listButton{
-    margin-right:auto;
+
+    /*
+    background-color: aqua;
+    margin-right:1cm;
     margin-left:auto;
+    */
+
+    margin-right:1cm;
+    width:max-content;
+    height:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:5px;
+    border:inherit;
 }
 
 .nav-section-3-child a{
@@ -243,4 +285,9 @@ nav{
 
 body{
     background-color: #Ffad4E;
+}
+
+/*Profile Button In Header*/
+.dropdown{
+
 }
