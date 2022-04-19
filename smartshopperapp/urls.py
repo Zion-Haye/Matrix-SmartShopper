@@ -33,8 +33,8 @@ urlpatterns = [
 
 
     path('MyLists/RemoveItem/<list_id>/<product_id>/',views.remove_item_from_mylist, name="remove_item_from_mylist"),
-    path('MyLists/UpdateItem/',views.update_item_from_mylist, name="update_item_from_mylist"),
+    path('MyLists/UpdateItem/',views.update_item_from_mylist, name="update_item_from_mylist")
 
-    path('AboutUs/', views.display_about_us , name="views.display_about_us" )
+   
     
 ]

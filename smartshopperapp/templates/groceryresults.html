@@ -13,6 +13,29 @@
 
         <div id="page-content">
 
+            <h1>Grocery Results</h1>
+
+            <div id="configuration-section">
+
+                {% if list !=  None %}
+                <div id="configuration-details-container">
+
+                    <div id="configuration-priority">
+                        <p>Priority: {{list.configuration.priority}}</p>
+                    </div>
+
+                    <div id="configuration-location">
+                        <p>Location: {{list.configuration.location}}</p>
+                    </div>
+
+                </div>
+                {% endif %}
+                <div id="button-container">
+                    <button type="button" onclick="window.location.href='/ConfigureResults/'" class="btn btn-primary"> Reconfigure Results</button>
+                </div>
+
+            </div>
+
 
             <div id="grocery-results">
                 {% if groceryresults != None %}

@@ -215,7 +215,8 @@ def display_grocery_results(request):
         groceryresults = get_grocery_results(activelist ,listitems)
 
         context={
-                'groceryresults':groceryresults
+                'groceryresults':groceryresults,
+                'list':activelist
             }
 
         return render (request, 'groceryresults.html' , context)

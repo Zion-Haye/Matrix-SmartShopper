@@ -133,23 +133,23 @@ def get_individual_grocery_result(grocery_inventory , grocery , listitems , acti
     grocery_result["num_not_found"] = num_not_found
     grocery_result["total_cost"] = total_cost
 
-    googleAPIresponse = get_google_response(grocery.branch_location , activelist.configuration.location)
+    #googleAPIresponse = get_google_response(grocery.branch_location , activelist.configuration.location)
 
     
-    distance_string = googleAPIresponse["distance"]
+    #distance_string = googleAPIresponse["distance"]
 
-    if distance_string != "Not Found":
-        distance_list =  distance_string.split()
-        distance = distance_list[0]
-        grocery_result["distance"] = float(distance)
+    #if distance_string != "Not Found":
+        #distance_list =  distance_string.split()
+        #distance = distance_list[0]
+        #grocery_result["distance"] = float(distance)
 
-    else:
-        grocery_result["distance"] = googleAPIresponse["distance"]
+    #else:
+        #grocery_result["distance"] = googleAPIresponse["distance"]
 
-    grocery_result["duration"] = googleAPIresponse["duration"]
+    #grocery_result["duration"] = googleAPIresponse["duration"]
 
-    #grocery_result["distance"] = "Disconnected"
-    #grocery_result["duration"] = "Disconnected"
+    grocery_result["distance"] = "Disconnected"
+    grocery_result["duration"] = "Disconnected"
 
     #print(grocery_result)
 
