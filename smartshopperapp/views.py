@@ -22,9 +22,14 @@ def display_home_page(request):
     print("In Home:")
     print("Is Authenticated: ", isauthenticated)
 
+    #grocery_inventory =GroceryInventory.objects.all()
+    #grocery_inventory.delete()
+
     #product = Product.objects.all()
     #product.delete()
     
+    #populate_product_pool_database()
+    #populate_city_detail_database()
     #populate_grocery_detail_database()
     #populate_grocery_inventory_database()
 
@@ -32,20 +37,24 @@ def display_home_page(request):
     #user.set_password("password")
     #user.save()
 
-    populate_city_detail_database()
+    print("before populate city")
+    
+    print("after populate city")
 
     #cities = CityDetails.objects.all()
     #ities.delete()
 
     #test_dc()
 
+    print("before populate product pool")
+    
+    print("after populat product pool")
 
-    populate_product_pool_database()
-
+    print("Right before return render")
     return render (request, 'home.html')
 
-def display_about_us(request):  
-    return render (request, 'about.html')  
+def display_about_us(request):
+    return render (request, 'about.html')
 
 def display_category_page(request):
     return render (request , 'selectcategory.html' )
@@ -206,7 +215,8 @@ def display_grocery_results(request):
         groceryresults = get_grocery_results(activelist ,listitems)
 
         context={
-                'groceryresults':groceryresults
+                'groceryresults':groceryresults,
+                'list':activelist
             }
 
         return render (request, 'groceryresults.html' , context)
@@ -263,6 +273,22 @@ def add_product_to_list(request):
             add_item_to_list_items(activelist , product ,quantity)
 
     return redirect('/Catalogue/')
+
+def update_product_quantity_from_catalogue(request):
+    if request.user.is_authenticated:
+        user = request.user
+        activelist = get_registered_user_active_list(user)
+
+        if request.method=="POST":
+            quantity = request.POST.get('product_quantity')
+            product_id = request.POST.get('product_id')
+
+            product = get_product_by_id(product_id)
+
+            update_list_item_quantity(activelist , product, quantity)
+
+            return redirect('/Catalogue/')
+
 
 def display_my_lists(request):
     
@@ -341,6 +367,55 @@ def make_list_active(request , list_id):
         set_list_to_active(list_id , user)
 
         return redirect ('/MyLists/')
+
+def select_list(request , list_id):
+
+    if request.user.is_authenticated:
+        user = request.user
+
+        set_list_to_active(list_id , user)
+
+        return redirect ('/SelectCategory/')
+
+
+def remove_item_from_mylist(request , list_id , product_id):
+
+    if request.user.is_authenticated:
+        #user = request.user
+
+        print("Remove item from mylist")
+        print(list_id)
+        print(product_id)
+
+        list = find_list_by_id(list_id)
+        product = get_product_by_id(product_id)
+
+        delete_item_from_list_item(list , product)
+
+        return redirect ('/ViewListItems/' + list_id + '/')
+
+
+def update_item_from_mylist (request):
+    if request.user.is_authenticated:
+        #user = request.user
+        if request.method=="POST":
+
+            list_id = request.POST.get('list_id')
+            product_id = request.POST.get('product_id')
+            quantity = request.POST.get('product_quantity')
+
+            print("Update item from mylist")
+            print(list_id)
+            print(product_id)
+            print(quantity)
+
+            list = find_list_by_id(list_id)
+            product = get_product_by_id(product_id)
+
+            update_list_item_quantity(list , product, quantity)
+
+            return redirect ('/ViewListItems/' + list_id + '/')
+   
 
 #User Account
 def display_account_page(request):

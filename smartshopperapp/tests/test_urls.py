@@ -1,5 +1,5 @@
 
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, TestCase
 from django.urls import reverse, resolve
 
 from smartshopperapp.views import *
@@ -51,7 +51,7 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func , display_configure_results_page)
 
     def test_display_catalogue_subcategory_url_resolves(self):
-        url =  reverse('display_catalogue_subcategory', args=['Fruits'])
+        url =  reverse('display_catalogue_subcategory', args=['Snacks'])
         self.assertEquals(resolve(url).func , display_catalogue_page_with_subcategory)
 
     def test_add_product_to_list_url_resolves(self):
@@ -89,3 +89,29 @@ class TestUrls(SimpleTestCase):
     def test_make_list_active_url_resolves(self):
         url =  reverse('make_list_active', args=['1'])
         self.assertEquals(resolve(url).func , make_list_active)
+
+    def test_display_grocery_resultse_url_resolves(self):
+        url =  reverse('display_grocery_results')
+        self.assertEquals(resolve(url).func , display_grocery_results)
+
+    def test_delete_account_url_resolves(self):
+        url =  reverse('delete_account')
+        self.assertEquals(resolve(url).func ,delete_account )
+
+    def test_update_product_quantity_from_catalogue_url_resolves(self):
+        url =  reverse('update_product_quantity_from_catalogue')
+        self.assertEquals(resolve(url).func , update_product_quantity_from_catalogue)
+
+    def test_select_list_url_resolves(self):
+        url =  reverse('select_list',args=['1'])
+        self.assertEquals(resolve(url).func , select_list )
+
+    def test_remove_item_from_mylis_url_resolves(self):
+        url =  reverse('remove_item_from_mylist',args=['1','1'])
+        self.assertEquals(resolve(url).func , remove_item_from_mylist)
+
+    def test_update_item_from_mylist_url_resolves(self):
+        url =  reverse('update_item_from_mylist')
+        self.assertEquals(resolve(url).func ,update_item_from_mylist )
+
+    

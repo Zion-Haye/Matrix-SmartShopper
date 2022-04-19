@@ -13,6 +13,29 @@
 
         <div id="page-content">
 
+            <h1>Grocery Results</h1>
+
+            <div id="configuration-section">
+
+                {% if list !=  None %}
+                <div id="configuration-details-container">
+
+                    <div id="configuration-priority">
+                        <p>Priority: {{list.configuration.priority}}</p>
+                    </div>
+
+                    <div id="configuration-location">
+                        <p>Location: {{list.configuration.location}}</p>
+                    </div>
+
+                </div>
+                {% endif %}
+                <div id="button-container">
+                    <button type="button" onclick="window.location.href='/ConfigureResults/'" class="btn btn-primary"> Reconfigure Results</button>
+                </div>
+
+            </div>
+
 
             <div id="grocery-results">
                 {% if groceryresults != None %}
@@ -20,7 +43,7 @@
                     {% for groceryresult in groceryresults %}
 
                     <div class="accordion">
-                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}}</button>
+                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}} | {{groceryresult.distance}} mi | {{groceryresult.duration}} | ${{groceryresult.total_cost}}</button>
                         <div class="accordion-content">
 
                         <!-- <p>Grocery Name: {{groceryresult.grocery_name}}</p>
@@ -42,8 +65,8 @@
                                 <tr>
                                     <td>{{grocery_item.item_name}}</td>
                                     <td>{{grocery_item.quantity}}</td>
-                                    <td>{{grocery_item.unit_price}}</td>
-                                    <td>{{grocery_item.total_cost}}</td>
+                                    <td>${{grocery_item.unit_price}}</td>
+                                    <td>${{grocery_item.total_cost}}</td>
                                 </tr>
            
 
@@ -51,8 +74,8 @@
                         </table>
            
 
-                        <p>Total Cost: {{groceryresult.total_cost}}</p>
-                        <p>Estimated Distance: {{groceryresult.distance}}</p>
+                        <p>Total Cost: ${{groceryresult.total_cost}}</p>
+                        <p>Estimated Distance: {{groceryresult.distance}} mi</p>
                         <p>Estimated Time: {{groceryresult.duration}}</p>
 
                     </div>

@@ -80,12 +80,37 @@ WSGI_APPLICATION = 'smartshopper.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#SQLite
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
+
+#Local Postgress
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'SmartShopperApp',
+        #'USER' : 'postgres',
+        #'PASSWORD' : 'adminpassword',
+        #'HOST' : 'localhost',
+        #'PORT' : ''
+    #}
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'SmartShopper_db',
+        'USER' : 'postgres_aws',
+        'PASSWORD' : 'adminpassword',
+        'HOST' : 'database-2.cvvypp4kzdnt.us-east-1.rds.amazonaws.com',
+        'PORT' : ''
     }
 }
+
 
 
 # Password validation

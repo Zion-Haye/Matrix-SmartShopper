@@ -1,0 +1,75 @@
+
+
+/* consider placing this in basetemplate1 */
+#content{
+
+    background-color: #f28c28;
+    width:auto;
+    height: auto;
+    min-width: fit-content;
+    min-height: fit-content;
+    max-width: max-content;
+    margin-left:1cm;
+    margin-right:1cm;
+    margin-top:.5cm;
+    margin-bottom: .5cm;
+    display: flex;
+    
+    /* border-radius: 10px; */
+
+}
+
+.block{
+    margin:.5cm;
+    width:14.5cm;
+    height:16cm;
+    border-radius:10px;
+    background-color: #f0d5ada9;
+    display:inline-flex;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    
+}
+
+.block-2{
+    margin:.5cm;
+    width:30cm;
+    height:16cm;
+    border-radius:10px;
+    background-color: #f0d5ada9;
+    display:inline-flex;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.text-header-properties{
+    color:black;
+    font-size:40px;
+    text-align: center;
+    display: inline-flexbox;
+    margin-top:2cm;
+}
+
+.text-properties{
+    margin-left:.8cm;
+    margin-right:.8cm;
+    color:black;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+
+}
+
+.text-properties-questions{
+    margin-left:.8cm;
+    margin-right:.8cm;
+    color:black;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    font-weight:bolder;
+}
+

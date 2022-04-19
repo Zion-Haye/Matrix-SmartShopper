@@ -8,9 +8,9 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #fbc6a8;
+    background-color: #f28c28;
 
-    border:0.5px solid black;
+   
     
 
 }
@@ -20,13 +20,13 @@
     width:80%;
     height: auto;
  
-
+    background-color: #ffbe45ef;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    border:0.5px solid black;
+
 }
 
 #grocery-results{
@@ -38,14 +38,83 @@
     justify-content: center;
     align-items: center;
 
-    border:0.5px solid black;
+    background-color: rgba(255, 225, 181, 0.671);
+
+  
+}
+
+#configuration-section{
+   width:60%;
+   min-height: 30vh;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 225, 181, 0.671);
+
+}
+
+#configuration-details-container{
+   width:100%;
+   height: 70%;
+
+   display:flex;
+   justify-content: center;
+   align-items: center;
+
+ 
+
+
+}
+
+#configuration-priority{
+   width:50%;
+   height: 100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+
+
+
+}
+
+#configuration-location{
+   width:50%;
+   height: 100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+
+ 
+}
+
+
+#button-container{
+   width:100%;
+   height: 30%;
+
+   display:flex;
+   justify-content: center;
+   align-items: center;
+
+  
 }
 
 /* Accordion */
 .accordion{
     width:100%;
     height:auto;
+    margin-bottom: 2vh;
+    border-radius: 5px;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
+
+.accordion:hover{
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 .accordion-bttn{
    display:block;
    width:100%;
@@ -80,4 +149,5 @@
    overflow:hidden;
    max-height:0;
    transition:max-height 0.2s;
+   background-color: white;
 }

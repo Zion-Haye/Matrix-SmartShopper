@@ -24,21 +24,28 @@ def populate_grocery_inventory_database():
                 cost = row[7]
                 image_url = row[8]
 
+                #cost = float(cost)
+
                 grocery = GroceryDetails.objects.all().filter(grocery_name = grocery_name , branch_location = branch_location) 
 
                 if grocery.exists():
 
                     grocery =  GroceryDetails.objects.get(grocery_name = grocery_name , branch_location = branch_location) 
+                    
+                    print("Grocery Details:")
+                    print(grocery.grocery_name)
+                    print(grocery.branch_location)
 
                     groceryinventory = GroceryInventory(category=product_category , sub_category=sub_category,
                     brand_name = brand_name , item_name=item_name, size=size , cost=cost ,image=image_url , grocery = grocery)
 
-
+                
                     try:
                         groceryinventory.save()
                         #product.commit()
+
                     except:
-                        print("Error")
+                        print("Error - Grocery Inventory")
 
                 else:
                     print("Grocery: " , grocery_name , "does not exist")
