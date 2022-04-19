@@ -1,4 +1,5 @@
 
+
 #headnavContainer{
     
     min-height: fit-content;
@@ -57,6 +58,8 @@ nav{
     border: 0.5px solid black;
     
 }
+
+
 
 #logowrapper{
     margin-left:.5cm;
@@ -288,6 +291,16 @@ body{
 }
 
 /*Profile Button In Header*/
-.dropdown{
 
+.profile-btn{
+    border-radius: 10px;
+    color:orange;
+    background-color: black;
+    border:none;
 }
+
+.profile-btn:hover{
+    color:black;
+    background-color: orange;
+}
+
