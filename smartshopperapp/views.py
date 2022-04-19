@@ -44,6 +44,9 @@ def display_home_page(request):
 
     return render (request, 'home.html')
 
+def display_about_us(request):  
+    return render (request, 'about.html')  
+
 def display_category_page(request):
     return render (request , 'selectcategory.html' )
 

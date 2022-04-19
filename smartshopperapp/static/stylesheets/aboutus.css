@@ -33,6 +33,18 @@
     
 }
 
+.block-2{
+    margin:.5cm;
+    width:30cm;
+    height:16cm;
+    border-radius:10px;
+    background-color: #f0d5ada9;
+    display:inline-flex;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
 .text-header-properties{
     color:black;
     font-size:40px;
@@ -40,6 +52,7 @@
     display: inline-flexbox;
     margin-top:2cm;
 }
+
 .text-properties{
     margin-left:.8cm;
     margin-right:.8cm;
@@ -49,3 +62,14 @@
     display: flex;
 
 }
+
+.text-properties-questions{
+    margin-left:.8cm;
+    margin-right:.8cm;
+    color:black;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    font-weight:bolder;
+}
+
