@@ -2,14 +2,16 @@
 
 #headnavContainer{
     
-    min-height: fit-content;
-    
+    min-height: 5cm;
+    margin:auto;
+    width:100vw;
     background-color:#051E21; 
     /*min-width:fit-content;
+    width: 51.3cm;
     */
     max-width: max-content; 
     max-height:fit-content;
-    width: 51.3cm;
+    
     
 }
 
@@ -37,8 +39,7 @@ header{
 
 
 nav{
-    
-    width:inherit;
+    width:100vw;
     min-width:fit-content;
     margin-right:1cm;
     height:6vh;
@@ -46,8 +47,6 @@ nav{
     justify-content: center;
     align-items: center;
     background-color:#00302D;
-
-    
 }
 
 
@@ -125,7 +124,7 @@ nav{
 #searchbar{
 
     position:relative;
-    width:30cm;
+    width:25cm;
     min-width:10cm;
     max-height: 1cm;
     height: 1cm;
@@ -160,9 +159,9 @@ nav{
 #profileButtonContainer{
     width:fit-content;
     height:fit-content;
-    display: flex;
-    justify-content:flex-start;
-    align-items:flex-start;
+    display:flexbox;
+    justify-content:flex-end;
+    align-items:flex-end;
     
 }
 
