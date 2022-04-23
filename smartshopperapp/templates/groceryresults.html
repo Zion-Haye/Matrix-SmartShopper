@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'stylesheets\groceryresultsstyle.css' %}?{% now "U" %}">
 
 {% endblock %}
-{% block title %}Grocery Results :: Smart Shopper{% endblock %}
+{% block title %}Grocery Results{% endblock %}
 
 {% block content %}
     <div id="content">
@@ -43,7 +43,7 @@
                     {% for groceryresult in groceryresults %}
 
                     <div class="accordion">
-                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}} | {{groceryresult.distance}} mi | {{groceryresult.duration}} | ${{groceryresult.total_cost}}</button>
+                        <button type="button" class="accordion-bttn">{{groceryresult.grocery_name}} - {{groceryresult.branch_location}} | {{groceryresult.distance}} mi | {{groceryresult.duration}} | Items Found:{{groceryresult.num_found}} | ${{groceryresult.total_cost}}</button>
                         <div class="accordion-content">
 
                         <!-- <p>Grocery Name: {{groceryresult.grocery_name}}</p>

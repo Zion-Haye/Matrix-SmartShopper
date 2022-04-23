@@ -24,7 +24,7 @@
 
     padding:2vh 0 0 0;
 
-    border:0.5px solid black;
+  
 }
 
 
@@ -41,11 +41,12 @@
 
     overflow-y: auto;
 
-    border:0.5px solid black;
+    
 }
 .grid-items{
     height:auto;
    
+    background-color: white;
 
     padding:2vh 0 2vh 2vw;
     border-radius: 5px;
@@ -71,7 +72,7 @@
     justify-content: center;
     align-items: center;
 
-    border:0.5px solid black;
+    
 
 }
 
@@ -84,13 +85,12 @@
     justify-content: space-around;
     align-items: center;
 
-    border:0.5px solid black;
 }
 
 .flexbox-items{
     width:15%;
     height:90%;
-    border:0.5px solid black;
+  
 }
 
 @media(max-width:800px){

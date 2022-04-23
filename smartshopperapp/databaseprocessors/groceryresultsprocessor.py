@@ -1,7 +1,8 @@
 import csv
+import re
 from smartshopperapp.models import GroceryDetails , GroceryInventory , ListItem
 from smartshopperapp.distancecalculator.distancecalculator import *
-from operator import itemgetter
+from operator import itemgetter, truediv
 
 
 
@@ -34,16 +35,19 @@ def sort_results(all_grocery_results_list, priority):
 
     if priority == "Cheapest":
         print("In Cheapest")
-        return all_grocery_results_list
+        all_grocery_results_list_sorted = sorted(all_grocery_results_list , key=lambda x: (-x["num_found"] , x["total_cost"]))
+        return all_grocery_results_list_sorted
 
     elif priority == "Closest":
         print("In closest")
-        all_grocery_results_list_sorted = sorted(all_grocery_results_list ,key=itemgetter('distance'))
+        #all_grocery_results_list_sorted = sorted(all_grocery_results_list ,key=itemgetter('distance'))
+        all_grocery_results_list_sorted = sorted(all_grocery_results_list , key=lambda x: (x["distance"] ,-x["num_found"]))
         return all_grocery_results_list_sorted
 
     elif priority == "Cheapest and Closest":
         print("In closest and cheapest")
-        return all_grocery_results_list
+        all_grocery_results_list_sorted = sorted(all_grocery_results_list , key=lambda x: (-x["num_found"] , x["total_cost"],x["distance"] ))
+        return all_grocery_results_list_sorted
 
     
 
@@ -86,21 +90,25 @@ def get_individual_grocery_result(grocery_inventory , grocery , listitems , acti
 
                     if does_contain_description == True:
 
-                        total_item_cost = int(listitem.item_quantity) * float(inventory_item.cost)
+                        does_contain_size = contains_size(inventory_item.item_name  , listitem.product.quantity)
 
-                        grocery_item = {
-                            'item_name' : inventory_item.item_name,
-                            'quantity' :listitem.item_quantity,
-                            'unit_price': inventory_item.cost,
-                            'total_cost' : total_item_cost
-                        }
+                        if does_contain_size == True:
 
-                        grocery_items.append(grocery_item)
+                            total_item_cost = int(listitem.item_quantity) * float(inventory_item.cost)
 
-                        num_found = num_found + 1
-                        total_cost = total_cost + total_item_cost
+                            grocery_item = {
+                                'item_name' : inventory_item.item_name,
+                                'quantity' :listitem.item_quantity,
+                                'unit_price': inventory_item.cost,
+                                'total_cost' : total_item_cost
+                            }
 
-                        isFound = True
+                            grocery_items.append(grocery_item)
+
+                            num_found = num_found + 1
+                            total_cost = total_cost + total_item_cost
+
+                            isFound = True
                 
             if not isFound:
                 grocery_item = {
@@ -175,9 +183,33 @@ def contains_item(inventory_full_item_name , list_item_name):
     
     return False
 
-def contains_size(inventory_full_item_name , list_item_description):
+def separate_number_chars(s):
+    res = re.split('([-+]?\d+\.\d+)|([-+]?\d+)', s.strip())
+    res_f = [r.strip() for r in res if r is not None and r.strip() != '']
+    return res_f
 
-   return False
+def contains_size(inventory_full_item_name , list_item_quantity):
+    inventory_full_item_name = inventory_full_item_name.lower()
+    list_item_quantity = list_item_quantity.lower()
+
+    if list_item_quantity == "1 ea" or list_item_quantity=="1ea":
+        return True
+
+    if list_item_quantity in inventory_full_item_name:
+        return True
+
+    list_item_quantity_split = separate_number_chars(list_item_quantity)
+
+    if list_item_quantity_split:
+
+        if list_item_quantity_split[0] in inventory_full_item_name:
+            return True
+
+       #for word in list_item_quantity_split:
+            #if word in inventory_full_item_name:
+                #return True """
+
+    return False
 
 def contains_description(inventory_full_item_name , list_item_description):
     inventory_full_item_name = inventory_full_item_name.lower()
@@ -203,4 +235,7 @@ def get_grocery_inventory(grocery):
         return grocery_inventory
     else:
         return None
+
+
+
 
