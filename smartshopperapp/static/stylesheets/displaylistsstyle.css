@@ -9,7 +9,8 @@
 
     padding-top:1vh;
 
-    background-color: #fbc6a8;
+    background-color: #f28c28;
+    color:white;
     
 }
 
@@ -24,29 +25,30 @@
 #list-table{
     width:100%;
     height: auto;
-   
+    
 }
 
 #list-table th, td{
     padding:10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid orange;
 }
 
 th {
-    background-color: grey;
+    background-color: black;
+    width:100vw;
     color: white;
   }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #051E21; 
 }
 
 tr:nth-child(odd) {
-    background-color: white;
+    background-color: hsl(167, 13%, 21%); 
 }
 
 tr:hover {
-    background-color: lightgray;
+    background-color: white;
 }
 
 #create-list-button-container{

@@ -66,7 +66,14 @@ button{
 }
 
 #content{
-
+    background-color: #f28c28;
+    width:80vw;
+    display:flex;
+    
+    min-width:1260px;
+    margin:auto;
+    justify-content: space-around;
+    /*
     background-color: #f28c28;
     width:auto;
     height: auto;
@@ -78,6 +85,7 @@ button{
     margin-top:.5cm;
     margin-bottom: .5cm;
     display: flex;
+    */
     
     /* border-radius: 10px; */
 
@@ -96,11 +104,13 @@ button{
     border-radius: 10px;
     margin-right: auto;
     margin-left:auto;
-    align-items:initial;
+    align-items:center;
     display: inline-flex;
-    width: 28cm;
+    width: 40vw;
     height:fit-content;
     min-height:min-content;
+    min-width:fit-content;
+    margin-top:3vh;
     /*
     display:flex;
     justify-content:center;
@@ -109,8 +119,8 @@ button{
 }
 
 #companyLogo{
-    height: 11cm;
-    width: 8.5cm;
+    height: 6cm;
+    width: 4.5cm;
     margin-left:1cm;
     margin-right:1cm;
     margin-bottom:1cm;
@@ -129,9 +139,11 @@ button{
 
 .welcome-block-text-1{
     color:black;
-    font-size: 32px;
+    font-size: 25px;
     font-family: 'Segoe UI', Tahoma Verdana, sans-serif;
     text-align: center;
+    margin-right:3vw;
+    margin-left:3vw;
 }
 
 /*Simply enter the items you want to find.....tell you where you can get the best deals!*/
@@ -141,6 +153,8 @@ button{
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     text-align:center;
+    margin-right:3vw;
+    margin-bottom: 2vh;
 
 }
 
@@ -151,35 +165,45 @@ button{
 }
 
 #groceryLogoBlock{
+
     background-color:rgba(255, 225, 181, 0.671);
     border-radius: 10px;
+    width: 30vw;
+    flex-direction: column;
+    display: flex;
+    margin-top:3vh;
+    min-width: fit-content;
+    justify-content:space-evenly;
+    
+
+    /*
+    
+    
     margin-right: auto;
     margin-left:1cm;
-    align-items:center;
-    display: flex;
-    flex-direction: column;
+    
+    
+    
     flex-wrap: wrap;
-    width: 18cm;
+    
     height:fit-content;
     min-height:min-content;
+
+    align-items:center;
+    */
 }
 
 .companyLogos{
     width:fit-content;
-    height:7cm;
+    height:20vh;
+    margin-left:auto;
+    margin-right:auto;
 
 }
 
 /* Get Started prompt div contents*/
 
-#imageContainer{
-    border-radius:10px;
-    width:28cm;
-    height: 15.6cm;
-    margin-top: 1cm;
-    display: flex;
-    background-color: black;
-}
+
 
 /*Code to transform FreshVeg.jpg opaque on hover and produce link to create an account or list*/
 
@@ -192,7 +216,8 @@ button{
 }
 
 #vegbackground{
-    width: inherit;
+    width: 40vw;
+    min-width: 40vw;
     border-radius: inherit;
 
 }
@@ -200,7 +225,18 @@ button{
 .image{
     transition: .5s ease;
     opacity:1;
-    filter:brightness(.5)
+    filter:brightness(.5);
+    min-width:40vw;
+}
+
+#imageContainer{
+    border-radius:10px;
+    width:40vw;
+    min-width: 40vw;
+    height:auto;
+    margin-top: 1cm;
+    display: flex;
+    background-color: black;
 }
 
 .imgTransform{
@@ -208,11 +244,40 @@ button{
     opacity:0;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    position:absolute;
+    text-decoration: none;
+    margin-top:28vh;
+    margin-left:20vw;
+    
+
+     /*
+    
+    margin-top: 6.1cm;
+    margin-right:1cm;
+    margin-left:9cm;
+
+    border-radius:10px;
+    
+    width: 10cm;
     text-align: center;
     position:absolute;
-    text-align: center;
-    text-decoration: none;
+    
+    display:grid  ;
+    
+    */
 
+}
+
+#hoverLink{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color:rgb(255, 255, 255);
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 16px 32px;
+
+   
 }
 
 /*
@@ -227,42 +292,30 @@ button{
     
     
     background-color: black;
+    
+
+    /*
     margin-top: 4cm;
     margin-right:6cm;
     margin-left:6cm;
-    width: 19cm;
-    
+    */
+    width: inherit;
     position:absolute;
     text-align: center;
     text-decoration: none;
     color: white;
     display:inline-block;
-    font-size: 60px;
+    font-size: 30px;
 
 }
 
 
-#hoverLink{
 
-    background-color: rgba(0, 0, 0, 0.5);
-    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
-    padding: 16px 32px;
-    border-radius:10px;
-    margin-top: 7.1cm;
-    margin-right:1cm;
-    margin-left:9cm;
-    width: 10cm;
-    text-align: center;
-    position:absolute;
-    color:rgb(255, 255, 255);
-    display:grid  ;
-    text-decoration: none;
-    font-size: 35px;
-}
 
 .hover{
     
     box-shadow: 0px 0px 20px #ffbe45ef;
+    align-items: center;
 }
 /* end transformation code*/
 
@@ -282,35 +335,50 @@ button{
 #infograph{
     margin-top: 1cm;
     background-color: rgba(255, 225, 181, 0.671);
-    width:28cm;
+    width:40vw;
+    min-width:fit-content;
     height: fit-content; /* 35 cm */
-    border-radius: 10px;        
+    border-radius: 10px;
 }
 
 
 .info-section{
-    margin-top: inherit;
-    width: 26cm;
-    height: 10cm;
-    margin-left:1cm;
-    margin-right:1cm;
+    margin-top: 10px;
+    margin-left:10px;
+    margin-right:10px;
+    width: 35vw;
+    min-width:fit-content;
+    height: auto;
+    flex-shrink:0;
     
 }
 
 .info-image{
 
-    height:10cm;
-    width: 10cm;
+    height:250px;
+    width: 250px;
 
+
+
+   /*20vh x 10vw*/ 
 }
 
 .info-text{
+
+    font-size: 18px;
+    margin-right:1cm;
+    margin-left:1cm;
+    margin-top:40px;
+    text-align: center;
+
+    /*
     height:10cm;
     width:18cm;
     color: black;
-    font-size: 30px;
-    text-align: center;
+    
+    
     padding: 110px 70px 25px 60px;
+    */
 }
 
 #info-section-1{
@@ -325,11 +393,12 @@ button{
 }
 
 #info-aisle-photo{
-    margin-left:1cm;
+    margin-left:110px;
+    position:relative;
 }
 
 #info-section-3{
-    margin-bottom: 1cm;
+    margin-bottom: 10px;
     display: inline-flex;
     justify-content: space-between;
 }

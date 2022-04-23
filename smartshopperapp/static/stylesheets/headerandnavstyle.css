@@ -2,26 +2,35 @@
 
 #headnavContainer{
     
-    min-height: fit-content;
-    
+    min-height: 5cm;
+    margin:auto;
+    width:100vw;
+    min-width:34.2cm;
     background-color:#051E21; 
     /*min-width:fit-content;
+    width: 51.3cm;
     */
     max-width: max-content; 
     max-height:fit-content;
-    width: 51.3cm;
+    
     
 }
 
 header{
     
     height:12vh;
-    
-    min-width:fit-content;
-    justify-content: center;
-    align-items:initial;
-    display: inline-flex;
     background-color:#051E21;
+    justify-content: center;
+    display: inline-flex;
+    align-items:initial;
+
+    /*
+    min-width:fit-content;
+    
+    
+    
+    
+    */
 
 }
 
@@ -37,8 +46,7 @@ header{
 
 
 nav{
-    
-    width:inherit;
+    width:100vw;
     min-width:fit-content;
     margin-right:1cm;
     height:6vh;
@@ -46,8 +54,6 @@ nav{
     justify-content: center;
     align-items: center;
     background-color:#00302D;
-
-    
 }
 
 
@@ -114,55 +120,95 @@ nav{
     margin-left: 35px;
 }
 
+#search{
+
+    /*
+    width:80%;
+    height:90%;
+    */
+    position:relative;
+    width:40vw;
+    height: 4vh;
+    top:2%;
+    left:5%;
+    margin-right:3vw;
+}
+
 #searchBarContainer{
     position:relative;
     width:fit-content;
-    min-width:10cm;
+    min-width:10vw;
     max-height:1cm;
+    margin:auto;
+    
 }
 
 
+/*
 #searchbar{
 
     position:relative;
-    width:30cm;
-    min-width:10cm;
-    max-height: 1cm;
-    height: 1cm;
+    width:60vw;
+    height: 4vh;
     top:2%;
     left:5%;
+
+    
+    min-width:10cm;
+    max-height: 1cm;
+    
+    flex-shrink:0;
+    
+    
 }
+*/
 
+#profileIconContainer{
 
-
-#profile_icon{
+    margin-left:1cm;
+    /*
     width:1cm;
-    height:1cm;
-    display: flex;
+    flex-shrink:1;
     justify-content: flex-start;
     align-items: center;
     margin-right:.3cm;
+    margin-left:5cm;
+    display: flex;
+    */
+    
+}
 
+
+#profile_icon{
+
+    width:1cm;
+    height:1cm;
+    justify-content:flex-start;
+    align-items:center;
+    margin-left:1cm;
+    display:flex;
+    padding-right:5px;
+    
 }
 
 
 #section-1{
     min-width:500px;
+    max-width:34.2cm;
     width:85%;
     height:100%;
-    display: flex;
+    display:flex;
     justify-content: flex-start;
-    align-items: center;
-
+    align-items:center;
 }
 
 
 #profileButtonContainer{
     width:fit-content;
     height:fit-content;
-    display: flex;
-    justify-content:flex-start;
-    align-items:flex-start;
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
     
 }
 
@@ -257,10 +303,7 @@ nav{
     border:none;
 }
 
-#search{
-    width:80%;
-    height:90%;
-}
+
 
 #listButton{
 

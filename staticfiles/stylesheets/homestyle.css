@@ -68,7 +68,7 @@ button{
 #content{
 
     background-color: #f28c28;
-    width:auto;
+    width:100vw;
     height: auto;
     min-width: fit-content;
     min-height: fit-content;
@@ -98,7 +98,7 @@ button{
     margin-left:auto;
     align-items:initial;
     display: inline-flex;
-    width: 28cm;
+    width: 50vw;
     height:fit-content;
     min-height:min-content;
     /*
@@ -109,8 +109,8 @@ button{
 }
 
 #companyLogo{
-    height: 11cm;
-    width: 8.5cm;
+    height: 6cm;
+    width: 3.5cm;
     margin-left:1cm;
     margin-right:1cm;
     margin-bottom:1cm;
